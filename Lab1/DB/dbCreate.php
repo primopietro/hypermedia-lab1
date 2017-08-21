@@ -1,7 +1,16 @@
 <?php
 
 
-require_once "dbConnect.php";
+//require_once "dbConnect.php";
+
+$user = "root";
+$password = "";
+$server = "localhost";
+$dbName = "tia16010";
+
+$conn = new mysqli($server,$user, $password, $dbName);
+
+
 $bigQuery = "-- phpMyAdmin SQL Dump
 -- version 4.6.0
 -- http://www.phpmyadmin.net
@@ -19,6 +28,7 @@ SET time_zone = '+00:00';
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
+
 
 --
 -- Database: `tia16010`
@@ -520,4 +530,10 @@ ALTER TABLE `ta_promotion_service`
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 ";
 
-$conn->query($bigQuery);
+/* Requête "Select" retourne un jeu de résultats */
+if ($result = $conn->query($bigQuery)) {
+    
+    /* Libération du jeu de résultats */
+    $result->close();
+}
+
