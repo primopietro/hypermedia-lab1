@@ -37,7 +37,7 @@ echo "
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src='../../dist/js/pages/dashboard.js'></script>
 <!-- AdminLTE for demo purposes -->
-<script src='../../dist/js/demo.js'></script>
+<script src='../scripts/scripts.js'></script>
 </body>
 </html>
 ";
