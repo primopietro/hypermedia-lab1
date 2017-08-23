@@ -35,7 +35,6 @@ require_once '../headers/user.php';
 							</div>
 						</div>
 						
-						
 					</div>
 
 					<!-- ./box-body -->
