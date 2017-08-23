@@ -35,7 +35,7 @@ require_once '../../system/header.php';
           </li>
           
           <li class="dropdown user user-menu">
-            <form action="#" method="get" class="sidebar-form" style="margin: 5px;margin-top: 7px;">
+            <form action="#" method="get" class="sidebar-form" style="margin: 5px;margin-top: 7px;max-width:130px;">
         <div class="input-group">
           <input name="q" class="form-control" placeholder="Search..." type="text">
               <span class="input-group-btn">
