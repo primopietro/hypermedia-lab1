@@ -1,9 +1,14 @@
 <?php
 
+
+header('Content-type: text/html; charset=utf-8');
+
+
 echo "
+<!DOCTYPE html>
 <html>
 <head>
- <meta charset='UTF-8'>
+ <meta charset='uft-8'>
  <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
   <!-- Bootstrap 3.3.7 -->
   <link rel='stylesheet' href='../../bower_components/bootstrap/dist/css/bootstrap.min.css'>
