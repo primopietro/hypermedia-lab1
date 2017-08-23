@@ -1,5 +1,5 @@
 <?php
-class FastechModel {
+class BaseModel {
     // Known attributes
     protected $table_name = '';
     protected $primary_key = null; // Not known EVERY time...
@@ -178,28 +178,6 @@ class FastechModel {
         unset ( $anObject ['table_name'] );
         unset ( $anObject ['primary_key'] );
         return $anObject;
-    }
-    
-   
-    function getActiveObjectsAsSelect($selected = null) {
-        if($this->primary_key == "order"){
-            $this->primary_key = "name";
-        }
-        $aListOfObjects = $this->getListOfActiveBDObjects ();
-        if ($selected == null) {
-            echo "<option value='Choisissez un $this->table_name'>Choisissez un $this->table_name</option>";
-        }
-        if ($aListOfObjects != null) {
-            foreach ( $aListOfObjects as $anObject ) {
-                
-                echo "<option ";
-                
-                if (preg_replace ( '/\s+/', '', $selected ) == preg_replace ( '/\s+/', '', $anObject [$this->primary_key] )) {
-                    echo " selected='selected' ";
-                }
-                echo " class='editable' value='" . $anObject [$this->primary_key] . "'>" . $anObject ["name"] . "</option>";
-            }
-        }
     }
     
     /**
