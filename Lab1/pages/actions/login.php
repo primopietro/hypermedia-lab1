@@ -12,18 +12,18 @@ require_once '../headers/login.php';
 
     <form action="../../index2.html" method="post">
       <div class="form-group has-feedback">
-        <input class="form-control" placeholder="Email" type="email">
+        <input class="form-control" placeholder="Couriel" type="email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input class="form-control" placeholder="Password" type="password">
+        <input class="form-control" placeholder="Mot de passe" type="password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-6">
           <div class="checkbox icheck">
             <label>
-              <div class="icheckbox_square-blue" style="position: relative;" aria-checked="false" aria-disabled="false"><input style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;" type="checkbox"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></ins></div> Forgot password
+              <div class="icheckbox_square-blue" ><input style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;" type="checkbox"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255) none repeat scroll 0% 0%; border: 0px none; opacity: 0;"></div> Mot de passe oublié
             </label>
           </div>
         </div>
@@ -40,7 +40,7 @@ require_once '../headers/login.php';
 
     <div class="social-auth-links text-center">
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> 
-      Sign in using Facebook</a>
+     Login with Facebook</a>
     </div>
 
   </div>

@@ -1779,3 +1779,16 @@
     border-left: 1px solid #d2d6de;
   }
 }
+
+.textRed{
+	color:#FF4A07;
+	font-size:50px;
+}
+
+.textOrange{
+	color:#FF9F07;
+	font-size:50px;
+}
+}
+	
+}
