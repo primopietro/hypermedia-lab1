@@ -7,10 +7,20 @@ class Utilisateur extends BaseModel {
     protected $primary_key = "pk_utilisateur";
     
     
+    protected $pk_utilisateur;
     protected $courriel;
     protected $mot_de_passe;
     protected $administrateur;
 
+    
+    
+    function getPk_utilisateur(){
+    	return $this->pk_utilisateur ;
+    }
+    
+    function setPk_utilisateur($pk){
+    	$this->pk_utilisateur = $pk;
+    }
     
 
     /**
@@ -65,6 +75,41 @@ class Utilisateur extends BaseModel {
     public function setAdministrateur($administrateur){
         $this->administrateur = $administrateur;
         return $this;
+    }
+    
+    public function checkValidUser(){
+    	//Include database connection
+    	require_once '../DB/dbConnect.php';
+    	
+    	//Variables
+    	$query = "SELECT * 
+    			FROM utilisateur 
+    			WHERE courriel = '" . $this->courriel ."'
+    			AND  mot_de_passe = '" . $this->mot_de_passe ."'";
+    	
+    	//Execute query 
+    	$result = $conn->query($query);
+    	
+    	//If user exists
+    	if($result->num_rows > 0){
+    		
+    		//Set data for current object
+	    	while ($row = $result->fetch_assoc()) {
+	    		
+		    	$this->pk_utilisateur = $row["pk_utilisateur"];
+		    	$this->administrateur = $row["administrateur"];
+		    }
+		    
+		    
+		    //Return statement
+    		return true;
+    	}
+    	else{
+    		
+    		//Return statement
+    		return false;
+    	}
+    	
     }
 
 }

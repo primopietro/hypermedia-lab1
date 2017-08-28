@@ -2092,3 +2092,7 @@
 		border-left: 1px solid #d2d6de
 	}
 }
+
+.skin-blue .wrapper{
+	background-color:white;
+}
