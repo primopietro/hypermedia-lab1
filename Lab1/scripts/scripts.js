@@ -45,6 +45,7 @@ $(document).on("click", "#signIn", function() {
 
 });
 
+
 //Get new header
 function getHeader(){
 	$.ajax({
