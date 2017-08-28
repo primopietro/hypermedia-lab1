@@ -29,8 +29,8 @@ require_once '../headers/user.php';
 							<div class="col-md-10">Ce cours a pour objectif de vous (...)
 							
     							<div class="row">
-            						<div class="col-md-6"><span>Tarif:200</span></div>
-            						<div class="col-md-6"><span>Durée:25h</span></div>
+            						<div class="col-md-6"><span class="text-blue">Tarif:200</span></div>
+            						<div class="col-md-6"><span class="text-orange">Durée:25h</span></div>
             					</div>
 							</div>
 						</div>
@@ -38,25 +38,7 @@ require_once '../headers/user.php';
 					</div>
 
 					<!-- ./box-body -->
-					<div class="box-footer">
-						<div class="row">
-							<div class="col-md-4"><h1>Promotions :</h1></div>
-							<div class="col-md-6">
-								<div class="promoList">
-    								<img src="../../images/promotions/10.png">
-    								<img src="../../images/promotions/25.png">
-    								<img src="../../images/promotions/30.png">
-        							<span style="font-size:50px;">+</span>
-								</div>
-							</div>
-							<div class="col-md-2">
-    							<div class="promoList">
-        							<img src="../../images/icones/medias_sociaux.jpeg">
-    							</div>
-							</div>
-						</div>
-						<!-- /.row -->
-					</div>
+					
 					<!-- /.box-footer -->
 				</div>
 				<!-- /.box -->
@@ -87,8 +69,8 @@ require_once '../headers/user.php';
 							<div class="col-md-10">Ce cours a pour objectif de vous (...)
 							
     							<div class="row">
-            						<div class="col-md-6"><span>Tarif:200</span></div>
-            						<div class="col-md-6"><span>Durée:25h</span></div>
+            						<div class="col-md-6"><span class="text-blue">Tarif:200</span></div>
+            						<div class="col-md-6"><span class="text-orange">Durée:25h</span></div>
             					</div>
 							</div>
 						</div>
@@ -97,26 +79,7 @@ require_once '../headers/user.php';
 					</div>
 
 					<!-- ./box-body -->
-					<div class="box-footer">
-						<div class="row">
-							<div class="col-md-4"><h1>Promotions :</h1></div>
-							<div class="col-md-6">
-								<div class="promoList">
-    								<img src="../../images/promotions/10.png">
-    								<img src="../../images/promotions/25.png">
-    								<img src="../../images/promotions/30.png">
-        							<span style="font-size:50px;">+</span>
-								</div>
-							</div>
-							<div class="col-md-2">
-    							<div class="promoList">
-        							<img src="../../images/icones/medias_sociaux.jpeg">
-    							</div>
-							</div>
-						</div>
-						<!-- /.row -->
-					</div>
-					<!-- /.box-footer -->
+					
 				</div>
 				<!-- /.box -->
 			</div>

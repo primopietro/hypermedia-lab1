@@ -8,7 +8,7 @@ require_once '../../system/header.php';
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>I</b>++</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Info</b>++</span>
+      <span class="logo-lg"><b><img src="../../images/icones/logo.png" class="imageTitle_FR" /> </b>++</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -19,24 +19,32 @@ require_once '../../system/header.php';
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      
  	 <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
-              
+         
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" >
-              <span class="hidden-xs">Service</span>
+              <span class="hidden-xs">Se déconnecter</span>
+            </a>
+          </li>
+        </ul><br>
+      
+        <ul class="nav navbar-nav">
+         
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" >
+              <span class="hidden-xs textOrange">Service</span>
             </a>
           </li>
           <li class="dropdown user user-menu">
             <a href="#" >
-              <span class="hidden-xs">Profil</span>
+              <span class="hidden-xs textRed">Facture</span>
             </a>
           </li>
-          
-          <li class="dropdown user user-menu">
-            <form action="#" method="get" class="sidebar-form" style="margin: 0px;margin-top: 7px;">
+           <li class="dropdown user user-menu">
+            <form action="#" method="get" class="sidebar-form" style="max-width:140px;margin: 5px;margin-top: 7px;">
         <div class="input-group">
           <input name="q" class="form-control" placeholder="Search..." type="text">
               <span class="input-group-btn">
@@ -45,16 +53,6 @@ require_once '../../system/header.php';
               </span>
         </div>
       </form>
-          </li>
-        </ul>
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-         
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" >
-              <span class="hidden-xs">Se déconnecter</span>
-            </a>
           </li>
         </ul>
       </div>

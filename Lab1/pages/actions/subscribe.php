@@ -11,7 +11,8 @@ require_once '../headers/login.php';
  
 
     <form action="../../index2.html" method="post">
-       <p class="login-box-msg">Remplissez ce formulaire pour créer votre profil</p>
+       <p class="14p">Remplissez ce formulaire pour créer votre profil</p>
+       <p class="text-red 10p">Tous les champs sont obligatoire</p>
      <div class="form-group has-feedback">
         <input class="form-control" placeholder="Name" name="Name">
       </div>
@@ -26,7 +27,15 @@ require_once '../headers/login.php';
         <input class="form-control" placeholder="Street" name="rue">
       </div>
       <div class="form-group has-feedback">
-        <input class="form-control" placeholder="Town" name="ville">
+       <select class="form-control" name="ville" id="ville">
+           <option value="sherbrooke">Sherbrooke</option>
+           <option value="magog">Magog</option>
+           <option value="montreal">Montreal</option>
+           <option value="quebec">Québec</option>
+           <option value="lennoxville">Lennoxville</option>
+           <option value="levis">Levis</option>
+
+       </select>
       </div>
       <div class="form-group has-feedback">
         <input class="form-control" placeholder="Postal Code " name="CP">
@@ -34,7 +43,8 @@ require_once '../headers/login.php';
       <div class="form-group has-feedback">
         <input class="form-control" placeholder="telephone" name="telephone">
       </div>
-         <p class="login-box-msg">Votre courriel servira à vous identifier lors de votre prochaine visite</p>
+         <p class="14p">Votre courriel servira à vous identifier lors de votre prochaine visite</p>
+         <p class="text-red 10p">Le mot de passe doit avoir au moin 1 chiffre, 1 lettre et 8 caractère minimum</p>
       <div class="form-group has-feedback">
         <input class="form-control" placeholder="Email" type="email">
       </div>
@@ -50,8 +60,8 @@ require_once '../headers/login.php';
       <div class="row">
         <div class="col-xs-8">
         <div class="checkbox">
-                  <label>
-                    <input type="checkbox">Souhaitez-vous recevoir les promotions et les nouveautés
+                  <label class="text-blue">
+                    <input type="checkbox" >Souhaitez-vous recevoir les promotions et les nouveautés
                   </label>
                 </div>
          
