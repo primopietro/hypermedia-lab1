@@ -5,9 +5,9 @@ require_once "components/header/header.php";
 ?>
 
 
-<div class="content-wrapper" style="min-height: 100vh; margin-top: -20px;">
+<div class="content-wrapper" id='mainContent' style="min-height: 100vh; ">
 <?php 
-require_once "components/body/login.php";
+require_once "components/body/body.php";
 ?>
 
 </div>

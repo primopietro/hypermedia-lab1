@@ -5,7 +5,7 @@
            <div class="login-box-body">
     <p class="login-box-msg">Veuillez vous identifier pour avoir la possibilité d'acheter des formations</p>
 
-    <form  method="post">
+    
       <div class="form-group has-feedback">
         <input class="form-control" placeholder="Email" name="email" id="email" type="email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -27,11 +27,11 @@
           <button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
         </div>
         <div class="col-xs-3">
-          <button href="javascript:void(0);" type="submit" class="btn btn-primary btn-block btn-flat" id="signIn">Sign In</button>
+          <button href="javascript:void(0);"  class="btn btn-primary btn-block btn-flat" id="signIn">Sign In</button>
         </div>
         <!-- /.col -->
       </div>
-    </form>
+    
 
     <div class="social-auth-links text-center">
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> 

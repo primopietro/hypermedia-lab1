@@ -34,7 +34,7 @@ $(document).on("click", "#signIn", function() {
 			
 		} else {
 			// error message
-			console.log(" login login failed");
+			console.log(" login failed");
 		}
 
 	}).always(function() {
@@ -45,6 +45,40 @@ $(document).on("click", "#signIn", function() {
 
 });
 
+//logout
+$(document).on("click", "#logout", function() {
+	
+  
+	$.ajax({
+		url : ajaxPath + "AJAX/logout.php",
+		beforeSend : function() {
+			console.log("logout started");
+			// Disable all btns
+			$("button").addClass('disabled');
+		}
+	}).done(function(data) {
+		if (data == "1") {
+			// AJAX request get new body content and header
+			console.log(" logout success");
+			
+			
+			//Get new body
+			getBody();
+			//Get new header
+			getHeader();
+			
+		} else {
+			// error message
+			console.log(" logout failed");
+		}
+
+	}).always(function() {
+		// enable all btns
+		$("button").removeClass("disabled");
+		console.log(" logout finished");
+	});
+
+});
 
 //Get new header
 function getHeader(){
@@ -65,5 +99,16 @@ function getHeader(){
 
 //Get new body
 function getBody(){
-	
+	$.ajax({
+		url : ajaxPath + "components/body/body.php",
+		beforeSend : function() {
+			console.log("getting new body started");
+		}
+	}).done(function(data) {
+		console.log(" getting new body success");
+		$("#mainContent").html(data);
+		
+	}).always(function() {
+		console.log(" getting new body finished");
+	});
 }
