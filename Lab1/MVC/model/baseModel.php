@@ -114,6 +114,33 @@ class BaseModel {
         
         $conn->close ();
     }
+    public  function getListOfAllDBObjectsWhere($argument,$operation, $value) {
+    	include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
+    	
+    	$internalAttributes = get_object_vars ( $this);
+    	
+    	$sql = "SELECT * FROM `" . $this->table_name . "` WHERE ".$argument. " ".$operation." ".$value." ";
+    	$result = $conn->query ( $sql );
+    	
+    	if ($result->num_rows > 0) {
+    		$localObjects = array ();
+    		while ( $row = $result->fetch_assoc () ) {
+    			$anObject = Array ();
+    			$anObject ["primary_key"] = $this->primary_key;
+    			$anObject ["table_name"] = $this->table_name;
+    			foreach ( $row as $aRowName => $aValue ) {
+    				$anObject [$aRowName] = $aValue;
+    			}
+    			
+    			$localObjects [$row [$this->primary_key]] = $anObject;
+    		}
+    		
+    		$conn->close ();
+    		return $localObjects;
+    	}
+    	$conn->close ();
+    	return null;
+    }
     
     public  function getListOfAllDBObjects() {
         include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';

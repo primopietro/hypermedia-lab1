@@ -1,12 +1,16 @@
 <?php
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/client.php');
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/utilisateur.php');
+require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/adresse.php');
 
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 
+$anAdress = new Adresse();
+$anAdressList = $anAdress->getListOfAllDBObjectsWhere($anAdress->getPrimary_key(),"=" ,$_SESSION["currentClient"]->getFk_adresse());
 
+$anAdress = $anAdressList[1];
 $form = "<div style='width:500px;margin:auto;'>
 <h1 class='text-white'> &nbsp;
 </h1>
@@ -18,17 +22,17 @@ $form = "<div style='width:500px;margin:auto;'>
        <p class='14p'>Remplissez ce formulaire pour créer votre profil</p>
        <p class='text-red 10p'>Tous les champs sont obligatoire</p>
      <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='Name' name='Name'>
+        <input class='form-control' placeholder='Name' name='Name' value='".  $_SESSION["currentClient"]->getPrenom()."'>
       </div>
        <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='Family Name' name='familyName'>
+        <input class='form-control' placeholder='Family Name' name='familyName' value='".  $_SESSION["currentClient"]->getNom()."'>
       </div>
       <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='No Civic' name='nCivic'>
+        <input class='form-control' placeholder='No Civic' name='nCivic' value='".  $anAdress['no_civique'] ."'>
       </div>
       
       <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='Street' name='rue'>
+        <input class='form-control' placeholder='Street' name='rue' value='".   $anAdress['rue']  ."'>
       </div>
       <div class='form-group has-feedback'>
        <select class='form-control' name='ville' id='ville'>
@@ -42,24 +46,24 @@ $form = "<div style='width:500px;margin:auto;'>
        </select>
       </div>
       <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='Postal Code ' name='CP'>
+        <input class='form-control' placeholder='Postal Code ' name='CP' value='".  $anAdress['code_postal'] ."'>
       </div>
       <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='telephone' name='telephone'>
+        <input class='form-control' placeholder='telephone' name='telephone'  value='".  $_SESSION["currentClient"]->getTelephone()."'>
       </div>
          <p class='14p'>Votre courriel servira à vous identifier lors de votre prochaine visite</p>
          <p class='text-red 10p'>Le mot de passe doit avoir au moin 1 chiffre, 1 lettre et 8 caractère minimum</p>
       <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='Email' type='email'>
+        <input class='form-control' placeholder='Email' type='email' value='".  $_SESSION["currentUser"]->getCourriel() ."'>
       </div>
       <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='Confirm email' type='email'>
+        <input class='form-control' placeholder='Confirm email' type='email' value='".  $_SESSION["currentUser"]->getCourriel() ."'>
       </div>
       <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='Password' type='password'>
+        <input class='form-control' placeholder='Password' type='password' value='".  $_SESSION["currentUser"]->getMot_de_passe() ."'>
       </div>
       <div class='form-group has-feedback'>
-        <input class='form-control' placeholder='Confirm password' type='password'>
+        <input class='form-control' placeholder='Confirm password' type='password' value='".  $_SESSION["currentUser"]->getMot_de_passe() ."'>
       </div>
       <div class='row'>
         <div class='col-xs-8'>
