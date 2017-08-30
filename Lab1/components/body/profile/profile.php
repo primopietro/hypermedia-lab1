@@ -10,7 +10,9 @@ if (session_status() == PHP_SESSION_NONE) {
 $anAdress = new Adresse();
 $anAdressList = $anAdress->getListOfAllDBObjectsWhere($anAdress->getPrimary_key(),"=" ,$_SESSION["currentClient"]->getFk_adresse());
 
-$anAdress = $anAdressList[1];
+$first_value = reset($anAdressList); // First Element's Value
+$first_key = key($anAdressList);
+$anAdress = $anAdressList[$first_key];
 $form = "<div style='width:500px;margin:auto;'>
 <h1 class='text-white'> &nbsp;
 </h1>
