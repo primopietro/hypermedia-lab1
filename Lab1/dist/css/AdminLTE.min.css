@@ -1994,10 +1994,11 @@ color: #FF9F07;
 
 .box-header>.fa, .box-header>.glyphicon, .box-header>.ion, .box-header .box-title
 	{
-	display: inline-block;
+	text-align:center;
 	font-size: 18px;
 	margin: 0;
-	line-height: 1
+	line-height: 1;
+	 font-weight: bold;
 }
 
 .box-header>.fa, .box-header>.glyphicon, .box-header>.ion {
@@ -5577,4 +5578,15 @@ table.text-center, table.text-center td, table.text-center th {
 }
 .14p{
 	font-size:14px !important;
+}
+.divCenter{
+	margin-left: 11%; margin-right: auto;
+}
+
+.textBot{
+
+    bottom:0;
+    margin-top:75px;
+   
+	
 }

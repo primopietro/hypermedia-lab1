@@ -29,7 +29,7 @@ function printService($aService){
 		$aService['image'] = "image-not-found.gif";
 	}
 	$markup = "<div class='row'>
-			<div class='col-md-12'>
+			<div class='col-md-7 divCenter'>
 				<div class='box'>
 					<div class='box-header with-border'>
 						<h3 class='box-title'>".$aService['service_titre']."</h3>
@@ -52,8 +52,9 @@ function printService($aService){
 							<div class='col-md-10'>
 								".$aService['service_description']."
     							<div class='row'>
-            						<div class='col-md-6'><span class='text-blue'>Tarif:".$aService['tarif']."</span></div>
-            						<div class='col-md-6'><span class='text-orange'>Durée:".$aService['duree']."h</span></div>
+            						<div class='col-md-6  textBot'><span class='text-blue'>Tarif:".$aService['tarif']."</span></div>
+            						<div class='col-md-5 textBot' ><span class='text-orange'>Durée:".$aService['duree']."h</span></div>
+                                    <div class='col-md-1 textBot' ><button><img style='max-width:25px;' src='images/icones/panier'></button></div>
             					</div>
 							</div>
 						</div>

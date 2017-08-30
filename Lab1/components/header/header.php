@@ -10,9 +10,9 @@ if (! isset ( $_SESSION ["currentClient"] )) {
     <!-- Logo -->
     <a href='index.php' class='logo'>
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class='logo-mini'><b>I</b>++</span>
+      <span class='logo-mini'><b>Info</b>++</span>
       <!-- logo for regular state and mobile devices -->
-      <span class='logo-lg'><b>Info</b>++</span>
+     <span class='logo-lg'><img src='images/icones/logo.png'></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class='navbar navbar-static-top'>
@@ -45,9 +45,9 @@ else {
 	$loggedHeader = "<header class='main-header'>
 					<a href='index.php' class='logo'>
 				      <!-- mini logo for sidebar mini 50x50 pixels -->
-				      <span class='logo-mini'><b>I</b>++</span>
+				      <span class='logo-mini'><b>Info</b>++</span>
 				      <!-- logo for regular state and mobile devices -->
-				      <span class='logo-lg'><b>Info</b>++</span>
+				      <span class='logo-lg'><img src='images/icones/logo.png'></span>
 				    </a>
 				    <!-- Header Navbar: style can be found in header.less -->
 				    <nav class='navbar navbar-static-top'>
