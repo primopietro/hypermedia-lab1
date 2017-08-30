@@ -16,7 +16,7 @@ $(document).on("click", "#signIn", function() {
 		url : ajaxPath + "AJAX/login.php",
 		data : data,
 		type: 'POST',
-		beforeSend : function() {
+		beforeSend : function() { enableLoader() ;
 			console.log("login started");
 			// Disable all btns
 			$("button").addClass('disabled');
@@ -37,7 +37,7 @@ $(document).on("click", "#signIn", function() {
 			console.log(" login failed");
 		}
 
-	}).always(function() {
+	}).always(function() { disableLoader();
 		// enable all btns
 		$("button").removeClass("disabled");
 		console.log(" login finished");
@@ -51,7 +51,7 @@ $(document).on("click", "#logout", function() {
   
 	$.ajax({
 		url : ajaxPath + "AJAX/logout.php",
-		beforeSend : function() {
+		beforeSend : function() { enableLoader() ;
 			console.log("logout started");
 			// Disable all btns
 			$("button").addClass('disabled');
@@ -72,7 +72,7 @@ $(document).on("click", "#logout", function() {
 			console.log(" logout failed");
 		}
 
-	}).always(function() {
+	}).always(function() { disableLoader();
 		// enable all btns
 		$("button").removeClass("disabled");
 		console.log(" logout finished");
@@ -80,18 +80,41 @@ $(document).on("click", "#logout", function() {
 
 });
 
+
+//Menu links
+$(document).on("click",".dropdown.user.user-menu",function(){
+	if(!$(this).hasClass("active")){
+		$(".dropdown.user.user-menu").removeClass("active");
+		$(this).addClass("active");
+		var link = $(this).attr("shopLink");
+		$.ajax({
+			url : ajaxPath + "components/body/"+link+"/"+link+".php",
+			beforeSend : function() { enableLoader() ;
+				console.log("getting new body started");
+			}
+		}).done(function(data) {
+			console.log(" getting new body success");
+			$("#mainContent").html(data);
+			
+		}).always(function() { disableLoader();
+			console.log(" getting new body finished");
+		});
+	}
+});
+
+
 //Get new header
 function getHeader(){
 	$.ajax({
 		url : ajaxPath + "components/header/header.php",
-		beforeSend : function() {
+		beforeSend : function() { enableLoader() ;
 			console.log("getting new header started");
 		}
 	}).done(function(data) {
 		console.log(" getting new header success");
 		$("header").html(data);
 		
-	}).always(function() {
+	}).always(function() { disableLoader();
 		console.log(" getting new header finished");
 	});
 }
@@ -101,14 +124,24 @@ function getHeader(){
 function getBody(){
 	$.ajax({
 		url : ajaxPath + "components/body/body.php",
-		beforeSend : function() {
+		beforeSend : function() { enableLoader() ;
 			console.log("getting new body started");
 		}
 	}).done(function(data) {
 		console.log(" getting new body success");
 		$("#mainContent").html(data);
 		
-	}).always(function() {
+	}).always(function() { disableLoader();
 		console.log(" getting new body finished");
 	});
 }
+
+// Enable loader
+function enableLoader() {
+	$("#loader-3").css("display", "table");
+}
+
+// Disable loader
+function disableLoader() {
+	$("#loader-3").css("display", "none");
+} 

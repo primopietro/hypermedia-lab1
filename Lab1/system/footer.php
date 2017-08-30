@@ -1,6 +1,9 @@
 <?php
 
 echo "
+	<div id='loader-3' style='display:none;'>
+		<span></span><span></span><span></span><span></span><span></span>
+	</div>
 </div>
 <script src=' bower_components/jquery/dist/jquery.min.js'></script>
 <!-- jQuery UI 1.11.4 -->

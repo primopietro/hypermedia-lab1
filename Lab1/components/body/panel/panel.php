@@ -1,5 +1,10 @@
 <?php 
+require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/client.php');
+require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/utilisateur.php');
 
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
 //if admin
 if ($_SESSION ["currentUser"]->getAdministrateur ()) {
 	$admin = "<section class='content'>

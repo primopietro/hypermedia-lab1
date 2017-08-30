@@ -11,5 +11,5 @@ if (! isset ( $_SESSION ["currentClient"] )) {
 }
 else {
 	
-	require_once 'panel.php';
+	require_once 'panel/panel.php';
 }
