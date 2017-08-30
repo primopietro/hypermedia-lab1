@@ -24,7 +24,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-3">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign Up</button>
+          <buttonhref="javascript:void(0);"  class="btn btn-primary btn-block btn-flat" id="signUp">Sign Up</button>
         </div>
         <div class="col-xs-3">
           <button href="javascript:void(0);"  class="btn btn-primary btn-block btn-flat" id="signIn">Sign In</button>

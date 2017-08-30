@@ -8,7 +8,7 @@ session_start ();
 if (! isset ( $_SESSION ["currentClient"] )) {
 	$default = "<header class='main-header'>
     <!-- Logo -->
-    <a href=' /' class='logo'>
+    <a href='index.php' class='logo'>
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class='logo-mini'><b>I</b>++</span>
       <!-- logo for regular state and mobile devices -->
@@ -28,7 +28,7 @@ if (! isset ( $_SESSION ["currentClient"] )) {
         <ul class='nav navbar-nav'>
          
           <!-- User Account: style can be found in dropdown.less -->
-          <li class='dropdown user user-menu'>
+          <li class='dropdown user user-menu' shopLink='login'>
             <a href='#' >
               <span class='hidden-xs'>S'identifier</span>
             </a>
@@ -43,7 +43,7 @@ else {
 	// Get proper header
 	
 	$loggedHeader = "<header class='main-header'>
-					<a href=' /' class='logo'>
+					<a href='index.php' class='logo'>
 				      <!-- mini logo for sidebar mini 50x50 pixels -->
 				      <span class='logo-mini'><b>I</b>++</span>
 				      <!-- logo for regular state and mobile devices -->

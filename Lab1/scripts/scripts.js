@@ -45,6 +45,25 @@ $(document).on("click", "#signIn", function() {
 
 });
 
+
+//Click on signUp button
+$(document).on("click", "#signUp", function() {
+
+	$.ajax({
+		url : ajaxPath + "components/body/register/register.php",
+		beforeSend : function() { enableLoader() ;
+			console.log("getting new body started");
+		}
+	}).done(function(data) {
+		console.log(" getting new body success");
+		$("#mainContent").html(data);
+		
+	}).always(function() { disableLoader();
+		console.log(" getting new body finished");
+	});
+});
+
+
 //logout
 $(document).on("click", "#logout", function() {
 	
@@ -79,6 +98,8 @@ $(document).on("click", "#logout", function() {
 	});
 
 });
+
+
 
 
 //Menu links

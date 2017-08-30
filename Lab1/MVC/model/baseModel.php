@@ -6,7 +6,7 @@ class BaseModel {
     public function addDBObject() {
         $internalAttributes = get_object_vars ( $this );
         
-        include $_SERVER ["DOCUMENT_ROOT"] . '/AcierBD/Acier/database_connect.php';
+        include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
         
         $definition = "INSERT INTO `" . $this->table_name . "`";
      
@@ -70,7 +70,7 @@ class BaseModel {
         
         //echo "<br>" . $sql;
         
-        include $_SERVER ["DOCUMENT_ROOT"] . '/AcierBD/Acier/database_connect.php';
+        include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
         
         if ($conn->query ( $sql ) === TRUE) {
             echo "success";
@@ -87,7 +87,7 @@ class BaseModel {
         
         //echo "<br>" . $sql;
         
-        include $_SERVER ["DOCUMENT_ROOT"] . '/AcierBD/Acier/database_connect.php';
+        include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
         
         if ($conn->query ( $sql ) === TRUE) {
             echo "success";
@@ -104,7 +104,7 @@ class BaseModel {
 		SET `id_state` = '2'
 		WHERE  `" . $this->table_name . "`.`" . $this->primary_key . "` = '$anID' ";
         
-        include $_SERVER ["DOCUMENT_ROOT"] . '/AcierBD/Acier/database_connect.php';
+        include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
         
         if ($conn->query ( $sql ) === TRUE) {
             return "success";
@@ -115,16 +115,16 @@ class BaseModel {
         $conn->close ();
     }
     
-    function getListOfAllDBObjects() {
-        include $_SERVER ["DOCUMENT_ROOT"] . '/AcierBD/Acier/database_connect.php';
+    public  function getListOfAllDBObjects() {
+        include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
         
-        $internalAttributes = get_object_vars ( $this );
+        $internalAttributes = get_object_vars ( $this);
         
         $sql = "SELECT * FROM `" . $this->table_name . "` ";
         $result = $conn->query ( $sql );
         
         if ($result->num_rows > 0) {
-            $fastechObjects = array ();
+            $localObjects = array ();
             while ( $row = $result->fetch_assoc () ) {
                 $anObject = Array ();
                 $anObject ["primary_key"] = $this->primary_key;
@@ -133,17 +133,17 @@ class BaseModel {
                     $anObject [$aRowName] = $aValue;
                 }
                 
-                $fastechObjects [$row [$this->primary_key]] = $anObject;
+                $localObjects [$row [$this->primary_key]] = $anObject;
             }
             
             $conn->close ();
-            return $fastechObjects;
+            return $localObjects;
         }
         $conn->close ();
         return null;
     }
     function getObjectFromDB($primary_key) {
-        include $_SERVER ["DOCUMENT_ROOT"] . '/AcierBD/Acier/database_connect.php';
+        include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
         
         $internalAttributes = get_object_vars ( $this );
         
@@ -190,7 +190,7 @@ class BaseModel {
     /**
      * table_name
      * @param unkown $table_name
-     * @return FastechModel
+     * @return localModel
      */
     public function setTable_name($table_name){
         $this->table_name = $table_name;
@@ -206,7 +206,7 @@ class BaseModel {
     /**
      * primary_key
      * @param unkown $primary_key
-     * @return FastechModel
+     * @return localModel
      */
     public function setPrimary_key($primary_key){
         $this->primary_key = $primary_key;
