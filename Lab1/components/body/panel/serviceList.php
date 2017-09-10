@@ -20,11 +20,11 @@ function getServiceList(){
 function printServiceList(){
 	$serviceList = getServiceList();
 	foreach ($serviceList as &$service) {
-		printService($service);
+		echo getServiceComponent($service);
 	}
 }
 
-function printService($aService){
+function getServiceComponent($aService){
 	if($aService['image'] == null){
 		$aService['image'] = "image-not-found.gif";
 	}
@@ -48,13 +48,13 @@ function printService($aService){
 
 					<div class='box-body'>
 						<div class='row'>
-						<div class='col-md-2'><img style='max-width:150px;' src='images/services/".$aService['image']."'></div>
+						<div class='col-md-2'><img class='img-responsive'  src='images/services/".$aService['image']."'></div>
 							<div class='col-md-10'>
 								".$aService['service_description']."
     							<div class='row'>
             						<div class='col-md-6  textBot'><span class='text-blue'>Tarif:".$aService['tarif']."</span></div>
-            						<div class='col-md-5 textBot' ><span class='text-orange'>Durée:".$aService['duree']."h</span></div>
-                                    <div class='col-md-1 textBot' ><button><img style='max-width:25px;' src='images/icones/panier'></button></div>
+            						<div class='col-md-5 textBot' ><span class='text-orange'>DurÃ©e:".$aService['duree']."h</span></div>
+                                    <div class='col-md-1 textBot' ><a  href='javascript:void(0)'><img class='img-responsive'  style='max-width:25px;' src='images/icones/panier'></a></div>
             					</div>
 							</div>
 						</div>
@@ -70,5 +70,5 @@ function printService($aService){
 			<!-- /.col -->
 		</div>";
 	
-	echo $markup;
+	return $markup;
 }

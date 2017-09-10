@@ -4,8 +4,10 @@ require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/util
 require_once "settings.php";
 require_once "links.php";
 session_start ();
+
+
 // if session not set (user not logged in)
-if (! isset ( $_SESSION ["currentClient"] )) {
+if (! isset ( $_SESSION ["currentClient"] ) || $_SESSION ["currentUser"]->getAdministrateur()) {
 	$default = "<header class='main-header'>
     <!-- Logo -->
     <a href='index.php' class='logo'>
@@ -17,7 +19,7 @@ if (! isset ( $_SESSION ["currentClient"] )) {
     <!-- Header Navbar: style can be found in header.less -->
     <nav class='navbar navbar-static-top'>
       <!-- Sidebar toggle button-->
-      <a href='#' class='sidebar-toggle' data-toggle='push-menu' role='button'>
+      <a href='#' style='display:none;' class='sidebar-toggle' data-toggle='push-menu' role='button'>
         <span class='sr-only'>Toggle navigation</span>
         <span class='icon-bar'></span>
         <span class='icon-bar'></span>
@@ -25,15 +27,33 @@ if (! isset ( $_SESSION ["currentClient"] )) {
       </a>
 
       <div class='navbar-custom-menu'>
-        <ul class='nav navbar-nav'>
-         
-          <!-- User Account: style can be found in dropdown.less -->
+        <ul class='nav navbar-nav'>";
+	
+	if( isset($_SESSION ["currentUser"])){
+		if($_SESSION ["currentUser"]->getAdministrateur()){
+			
+			$default.="
+			<ul class='nav navbar-nav'>
+					
+						          <!-- User Account: style can be found in dropdown.less -->";
+			$default.= getHeaderLinks( $_SESSION ["currentUser"] );
+			$default.= "</ul>";
+			
+			$default.= getHeaderSettings( $_SESSION ["currentUser"] );
+			
+		}
+	}else{
+		$default .="<!-- User Account: style can be found in dropdown.less -->
           <li class='dropdown user user-menu' shopLink='login'>
             <a href='#' >
               <span class='hidden-xs'>S'identifier</span>
             </a>
-          </li>
-        </ul>
+          </li>";
+	}
+	
+    $default .="</ul>
+
+
       </div>
     </nav>
   </header>";

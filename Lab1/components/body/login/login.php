@@ -3,7 +3,7 @@
 </h1>
 <div class="box box-warning">
            <div class="login-box-body">
-    <p class="login-box-msg">Veuillez vous identifier pour avoir la possibilité d'acheter des formations</p>
+    <p class="login-box-msg">Veuillez vous identifier pour avoir la possibilitÃ© d'acheter des formations</p>
 
     
       <div class="form-group has-feedback">
@@ -24,7 +24,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-3">
-          <buttonhref="javascript:void(0);"  class="btn btn-primary btn-block btn-flat" id="signUp">Sign Up</button>
+          <button href="javascript:void(0);"  class="btn btn-primary btn-block btn-flat" id="signUp">Sign Up</button>
         </div>
         <div class="col-xs-3">
           <button href="javascript:void(0);"  class="btn btn-primary btn-block btn-flat" id="signIn">Sign In</button>

@@ -15,7 +15,7 @@ $form = "<div style='width:500px;margin:auto;'>
  
 
     <form action='../../index2.html' method='post'>
-       <p class='14p'>Remplissez ce formulaire pour créer votre profil</p>
+       <p class='14p'>Remplissez ce formulaire pour crÃ©er votre profil</p>
        <p class='text-red 10p'>Tous les champs sont obligatoire</p>
    <div class='form-group  col-md-6 '>
         <input class='form-control' placeholder='Name' name='Name'>
@@ -35,7 +35,7 @@ $form = "<div style='width:500px;margin:auto;'>
            <option value='sherbrooke'>Sherbrooke</option>
            <option value='magog'>Magog</option>
            <option value='montreal'>Montreal</option>
-           <option value='quebec'>Québec</option>
+           <option value='quebec'>QuÃ©bec</option>
            <option value='lennoxville'>Lennoxville</option>
            <option value='levis'>Levis</option>
 
@@ -47,8 +47,8 @@ $form = "<div style='width:500px;margin:auto;'>
       <div class='form-group  col-md-6 '>
         <input class='form-control' placeholder='telephone' name='telephone'>
       </div>
-         <p class='14p'>Votre courriel servira à vous identifier lors de votre prochaine visite</p>
-         <p class='text-red 10p'>Le mot de passe doit avoir au moin 1 chiffre, 1 lettre et 8 caractère minimum</p>
+         <p class='14p'>Votre courriel servira Ã  vous identifier lors de votre prochaine visite</p>
+         <p class='text-red 10p'>Le mot de passe doit avoir au moin 1 chiffre, 1 lettre et 8 caractere minimum</p>
     <div class='form-group  col-md-6 '>
         <input class='form-control' placeholder='Email' type='email'>
       </div>
@@ -65,7 +65,7 @@ $form = "<div style='width:500px;margin:auto;'>
         <div class='col-xs-8'>
         <div class='checkbox'>
                   <label class='text-blue'>
-                    <input type='checkbox' >Souhaitez-vous recevoir les promotions et les nouveautés
+                    <input type='checkbox' >Souhaitez-vous recevoir les promotions et les nouveautÃ©s
                   </label>
                 </div>
          

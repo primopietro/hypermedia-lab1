@@ -9,7 +9,6 @@ require_once "components/header/header.php";
 <?php 
 require_once "components/body/body.php";
 ?>
-
 </div>
 
 <?php 

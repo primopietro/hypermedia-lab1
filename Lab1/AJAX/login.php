@@ -22,14 +22,23 @@ if(isset($_POST)){
 		//Set session variable
 		$_SESSION["currentUser"] = $user;
 		
-		//Get client for this user
-		$client = new Client();
-		
-		//Get client info
-		if(	$client->getInfoFromPk_utilisateur($user->getPk_utilisateur())){
-			//Set client in the current session
-			$_SESSION["currentClient"] = $client;
+		//If user is not an Admin, get current client for the session
+		if(!$user->getAdministrateur()){
+			//Get client info
+			
+			//Get client for this user
+			$client = new Client();
+			
+			if(	$client->getInfoFromPk_utilisateur($user->getPk_utilisateur())){
+				//Set client in the current session
+				$_SESSION["currentClient"] = $client;
+			}
 		}
+		else{
+			//Return success response to front-end
+			echo "success";
+		}
+		
 	
 	}
 	

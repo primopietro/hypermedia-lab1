@@ -9,7 +9,7 @@ if (session_status() == PHP_SESSION_NONE) {
 //if admin
 if(array_key_exists ( "currentUser" , $_SESSION)){
 	if ($_SESSION ["currentUser"]->getAdministrateur()) {
-		$admin = "<section class='content'>
+		$admin = "<div style='max-width:1000px;margin:auto;'><section class='content'>
 		<div class='row'>
 			<div class='col-md-12'>
 				<div class='box'>
@@ -35,7 +35,7 @@ if(array_key_exists ( "currentUser" , $_SESSION)){
 				
     							<div class='row'>
             						<div class='col-md-6'><span class='text-blue'>Tarif:200</span></div>
-            						<div class='col-md-6'><span class='text-orange'>Durée:25h</span></div>
+            						<div class='col-md-6'><span class='text-orange'>DurÃ©e:25h</span></div>
             					</div>
 							</div>
 						</div>
@@ -75,7 +75,7 @@ if(array_key_exists ( "currentUser" , $_SESSION)){
 				
     							<div class='row'>
             						<div class='col-md-6'><span class='text-blue'>Tarif:200</span></div>
-            						<div class='col-md-6'><span class='text-orange'>Durée:25h</span></div>
+            						<div class='col-md-6'><span class='text-orange'>DurÃ©e:25h</span></div>
             					</div>
 							</div>
 						</div>
@@ -90,7 +90,7 @@ if(array_key_exists ( "currentUser" , $_SESSION)){
 			</div>
 			<!-- /.col -->
 		</div>
-	</section>";
+	</section></div>";
 		echo $admin;
 	}
 	else{

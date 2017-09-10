@@ -14,7 +14,7 @@ function getHeaderSettings($aUser){
 	
 	$settings.= "<li class='dropdown user user-menu logout'>
 		<a href='javascript:void(0)' id='logout' >
-		<span class='hidden-xs' >Se déconnecter</span>
+		<span class='hidden-xs' >Se dÃ©connecter</span>
 		</a>
 		</li>";
 	
