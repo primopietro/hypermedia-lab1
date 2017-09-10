@@ -17,14 +17,14 @@ function getServiceList(){
 	return $serviceList;
 }
 
-function printServiceList(){
+function printCatalogList(){
 	$serviceList = getServiceList();
 	foreach ($serviceList as &$service) {
-		echo getServiceComponent($service);
+		echo getCatalogComponent($service);
 	}
 }
 
-function getServiceComponent($aService){
+function getCatalogComponent($aService){
 	if($aService['image'] == null){
 		$aService['image'] = "image-not-found.gif";
 	}

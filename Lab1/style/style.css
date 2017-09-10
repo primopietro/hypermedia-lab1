@@ -6,6 +6,12 @@
 .disabled{
 	pointer-events: none;
 }
+.floatRight{
+	float:right;
+}
+.floatLeft{
+	float:left;
+}
 .logo {
 	height: 57px;
 }

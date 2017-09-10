@@ -1,7 +1,7 @@
 <?php 
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/client.php');
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/utilisateur.php');
-require_once ('serviceList.php');
+require_once ('catalogList.php');
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
@@ -39,8 +39,32 @@ if(array_key_exists ( "currentUser" , $_SESSION)){
             					</div>
 							</div>
 						</div>
-				
+									<div class='row'>	
+									<div class='col-md-3'>	
+										<a href='#'> Promotions :</a>
+									</div>
+									<div class='col-md-9'>
+										<div class='row'>
+											<div class='col-md-2'>
+												<img class='img-responsive' src='images/promotions/40.png'>
+											</div>
+											<div class='col-md-2'>
+												<img class='img-responsive' src='images/promotions/50.png'>
+											</div>
+											<div class='col-md-2'>
+												<img class='img-responsive' src='images/promotions/70.png'>
+											</div>
+											<div class='col-md-2'>
+												<a href='#' style='color:blue;font-size:60px;'>+</a>
+											</div>
+											<div class='col-md-2 floatRight'>
+												<img class='img-responsive' src='images/icones/medias_sociaux.jpeg'>
+											</div>
+										</div>
+									</div>
+								</div>	
 					</div>
+	
 				
 					<!-- ./box-body -->
 				
@@ -70,18 +94,40 @@ if(array_key_exists ( "currentUser" , $_SESSION)){
 				
 					<div class='box-body'>
 						<div class='row'>
-						<div class='col-md-2'><img src='images/services/coursexcel.png'></div>
-							<div class='col-md-10'>Ce cours a pour objectif de vous (...)
+						<div class='col-md-3'><img src='images/services/coursexcel.png'></div>
+							<div class='col-md-9'>Ce cours a pour objectif de vous (...)
 				
     							<div class='row'>
             						<div class='col-md-6'><span class='text-blue'>Tarif:200</span></div>
             						<div class='col-md-6'><span class='text-orange'>Durée:25h</span></div>
             					</div>
+								
+								
 							</div>
-						</div>
+							</div>
+							<div class='row'>	
+									<div class='col-md-3'>	
+										<a href='#'> Promotions :</a>
+									</div>
+									<div class='col-md-9'>
+										<div class='row'>
+											<div class='col-md-2'>
+												<img class='img-responsive' src='images/promotions/10.png'>
+											</div>
+											<div class='col-md-2'>
+												<img class='img-responsive' src='images/promotions/25.png'>
+											</div>
+											<div class='col-md-2'>
+												<a href='#' style='color:blue;font-size:60px;'>+</a>
+											</div>
+											<div class='col-md-2 floatRight'>
+												<img class='img-responsive' src='images/icones/medias_sociaux.jpeg'>
+											</div>
+										</div>
+									</div>
+								</div>		
 				
-				
-					</div>
+							</div>
 				
 					<!-- ./box-body -->
 				
@@ -105,7 +151,7 @@ else{
 function printUserOrViewer(){
 	
 	$content ="<section class='content'>";
-	printServiceList();
+	printCatalogList();
 	
 	$content .= "<section>";
 	echo $content;
