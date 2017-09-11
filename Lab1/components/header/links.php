@@ -21,6 +21,10 @@ function getHeaderLinks($aUser){
 				            <a href='#' >
 				              <span class='hidden-xs textOrange'>Service</span>
 				            </a>
+				          </li><li class='dropdown user user-menu active' >
+				            <a href='#' >
+				              <span class='hidden-xs textOrange'>Promotion</span>
+				            </a>
 				          </li>
 				          <li class='dropdown user user-menu'>
 				            <a href='#' >

@@ -1,7 +1,3 @@
-<?php
-require_once '../../system/header.php';
-require_once '../headers/login.php';
-?>
 
 <div style="width:500px;margin:auto;">
 <h1 class="text-white"> &nbsp;
@@ -46,6 +42,3 @@ require_once '../headers/login.php';
   </div>
 </div>
 
-<?php
-require_once '../../system/footer.php';
-?>
