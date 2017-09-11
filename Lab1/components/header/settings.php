@@ -6,7 +6,7 @@ function getHeaderSettings($aUser){
 	$settings ="";
 	if (!$aUser->getAdministrateur()) {
 		$settings= "<li class='dropdown user user-menu'>
-		            <a href='#' >
+		            <a href='components/body/error/error404.php' >
 		              <span class='hidden-xs'>Mon panier(1)</span>
 		            </a>
 		          </li>";

@@ -36,10 +36,14 @@ if (! isset ( $_SESSION ["currentClient"] ) || $_SESSION ["currentUser"]->getAdm
 			<ul class='nav navbar-nav'>
 					
 						          <!-- User Account: style can be found in dropdown.less -->";
-			$default.= getHeaderLinks( $_SESSION ["currentUser"] );
-			$default.= "</ul>";
+			
 			
 			$default.= getHeaderSettings( $_SESSION ["currentUser"] );
+			$default.= "</ul>";
+			$default.="
+			 <ul class='nav navbar-nav'>";
+			$default.= getHeaderLinks( $_SESSION ["currentUser"] );
+                $default.= "</ul>";
 			
 		}
 	}else{
