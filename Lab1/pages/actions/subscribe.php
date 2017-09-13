@@ -1,7 +1,4 @@
-<?php
-require_once '../../system/header.php';
-require_once '../headers/login.php';
-?>
+
 
 <div style="width:500px;margin:auto;">
 <h1 class="text-white"> &nbsp;
@@ -11,7 +8,7 @@ require_once '../headers/login.php';
  
 
     <form action="../../index2.html" method="post">
-       <p class="14p">Remplissez ce formulaire pour créer votre profil</p>
+       <p class="14p">Remplissez ce formulaire pour crï¿½er votre profil</p>
        <p class="text-red 10p">Tous les champs sont obligatoire</p>
      <div class="form-group has-feedback">
         <input class="form-control" placeholder="Name" name="Name">
@@ -31,7 +28,7 @@ require_once '../headers/login.php';
            <option value="sherbrooke">Sherbrooke</option>
            <option value="magog">Magog</option>
            <option value="montreal">Montreal</option>
-           <option value="quebec">Québec</option>
+           <option value="quebec">Quï¿½bec</option>
            <option value="lennoxville">Lennoxville</option>
            <option value="levis">Levis</option>
 
@@ -43,8 +40,8 @@ require_once '../headers/login.php';
       <div class="form-group has-feedback">
         <input class="form-control" placeholder="telephone" name="telephone">
       </div>
-         <p class="14p">Votre courriel servira à vous identifier lors de votre prochaine visite</p>
-         <p class="text-red 10p">Le mot de passe doit avoir au moin 1 chiffre, 1 lettre et 8 caractère minimum</p>
+         <p class="14p">Votre courriel servira ï¿½ vous identifier lors de votre prochaine visite</p>
+         <p class="text-red 10p">Le mot de passe doit avoir au moin 1 chiffre, 1 lettre et 8 caractï¿½re minimum</p>
       <div class="form-group has-feedback">
         <input class="form-control" placeholder="Email" type="email">
       </div>
@@ -61,7 +58,7 @@ require_once '../headers/login.php';
         <div class="col-xs-8">
         <div class="checkbox">
                   <label class="text-blue">
-                    <input type="checkbox" >Souhaitez-vous recevoir les promotions et les nouveautés
+                    <input type="checkbox" >Souhaitez-vous recevoir les promotions et les nouveautï¿½s
                   </label>
                 </div>
          
@@ -76,6 +73,3 @@ require_once '../headers/login.php';
   </div>
 </div>
 
-<?php
-require_once '../../system/footer.php';
-?>
