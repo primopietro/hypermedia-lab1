@@ -100,8 +100,6 @@ $(document).on("click", "#logout", function() {
 });
 
 
-
-
 //Menu links
 $(document).on("click",".dropdown.user.user-menu",function(){
 	if(!$(this).hasClass("active") && !$(this).hasClass('logout')){
