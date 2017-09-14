@@ -1,13 +1,10 @@
-<?php 
+<?php
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/service.php');
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/Promotion.php');
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/TA_Promotion_Service.php');
-
-
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
-
 function getServiceListAdmin(){
 	
 	//Variables
@@ -50,7 +47,6 @@ function printServiceListAdmin(){
 	}
 	return $serviceListString;
 }
-
 function getServiceComponentAdmin($aService,$aPromotionList){
 	if($aService['image'] == null){
 		$aService['image'] = "image-not-found.gif";
@@ -60,7 +56,7 @@ function getServiceComponentAdmin($aService,$aPromotionList){
 				<div class='box'>
 					<div class='box-header with-border'>
 						<h3 class='box-title'>".$aService['service_titre']."</h3>
-				
+								
 						<div class='box-tools pull-right'>
 							<button type='button' class='btn btn-box-tool'
 								data-widget='collapse'>
@@ -73,7 +69,7 @@ function getServiceComponentAdmin($aService,$aPromotionList){
 	$markup.= getModifyServiceButton($aService);
 	$markup.="			</div>
 					</div>
-				
+			
 					<div class='box-body'>
 						<div class='row'>
 						<div class='col-md-2'><img class='img-responsive' src='images/services/".$aService['image']."'></div>
@@ -84,20 +80,19 @@ function getServiceComponentAdmin($aService,$aPromotionList){
             					</div>
 							</div>
 						</div>
-									<div class='row'>	
-									<div class='col-md-3'>	
+									<div class='row'>
+									<div class='col-md-3'>
 										<a href='#'> Promotions :</a>
 									</div>
 									<div class='col-md-9'>
 										<div class='row'>";
 	
-										foreach($aPromotionList as $aPromotion){
-											
-											$markup .=getModifyPromotionComponent($aPromotion);
-											
-										}
-
-										$markup.="<div class='col-md-2'>
+	foreach($aPromotionList as $aPromotion){
+		
+		$markup .=getModifyPromotionComponent($aPromotion);
+		
+	}
+	$markup.="<div class='col-md-2'>
 												<a href='#' style='color:blue;font-size:60px;'>+</a>
 											</div>
 											<div class='col-md-2 floatRight'>
@@ -105,12 +100,12 @@ function getServiceComponentAdmin($aService,$aPromotionList){
 											</div>
 										</div>
 									</div>
-								</div>	
+								</div>
 					</div>
-	
-				
+			
+			
 					<!-- ./box-body -->
-				
+			
 					<!-- /.box-footer -->
 				</div>
 				<!-- /.box -->
@@ -120,7 +115,6 @@ function getServiceComponentAdmin($aService,$aPromotionList){
 	
 	return $markup;
 }
-
 function getModifyServiceButton($aService){
 	$button ="
 	<div class='input-group-btn' class='col-xs-1' style='    display: block;
@@ -138,8 +132,6 @@ function getModifyServiceButton($aService){
 	</div>";
 	return $button;
 }
-
-
 function getModifyPromotionComponent($aPromotion){
 	$tempValPromo = $aPromotion['rabais']*100;
 	$startDate = $aPromotion['start_date'];
@@ -148,22 +140,21 @@ function getModifyPromotionComponent($aPromotion){
 	$markup ="<div class='col-md-2'>
 	<div class='box'>
 	<div class='input-group-btn' class='col-xs-1' style='z-index:100;transform: translatey(0px) translatex(55px);
-    position: absolute;'>
+	position: absolute;'>
 	<button type='button' class='btn btn-warning dropdown-toggle'
-			data-toggle='dropdown' aria-expanded='false' style='opacity:0.7;'>
-			
-			<span class='fa fa-caret-down'></span>
+	data-toggle='dropdown' aria-expanded='false' style='opacity:0.7;'>
+	
+	<span class='fa fa-caret-down'></span>
 	</button>
-			<ul class='dropdown-menu'>
+	<ul class='dropdown-menu'>
 	<li><a href='#'>Modifier la promotion</a></li>
 	<li><a href='#'>Supprimer la promotion</a></li>
-			</ul>
+	</ul>
 	</div>
 	<div class='promoVal'>$tempValPromo %</div>
-	<div class='hoverDates'>Debut : $startDate fin : $endDate</div> 
+	<div class='hoverDates'>Debut : $startDate fin : $endDate</div>
 	<div class='promoCode'>$code</div>
-
 	</div>
-</div>";
+	</div>";
 	return $markup;
 }
