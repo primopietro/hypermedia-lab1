@@ -104,12 +104,12 @@ $(document).on("click", "#logout", function() {
 
 //Menu links
 $(document).on("click",".dropdown.user.user-menu",function(){
-	if(!$(this).hasClass("active")){
+	if(!$(this).hasClass("active") && !$(this).hasClass('logout')){
 		$(".dropdown.user.user-menu").removeClass("active");
 		$(this).addClass("active");
 		var link = $(this).attr("shopLink");
 		$.ajax({
-			url : ajaxPath + "components/body/"+link+"/"+link+".php",
+			url : ajaxPath + "components/body/"+link+".php",
 			beforeSend : function() { enableLoader() ;
 				console.log("getting new body started");
 			}

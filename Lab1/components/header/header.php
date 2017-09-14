@@ -48,7 +48,7 @@ if (! isset ( $_SESSION ["currentClient"] ) || $_SESSION ["currentUser"]->getAdm
 		}
 	}else{
 		$default .="<!-- User Account: style can be found in dropdown.less -->
-          <li class='dropdown user user-menu' shopLink='login'>
+          <li class='dropdown user user-menu' shopLink='login/login'>
             <a href='#' >
               <span class='hidden-xs'>S'identifier</span>
             </a>
