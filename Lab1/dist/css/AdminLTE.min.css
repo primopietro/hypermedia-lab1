@@ -644,7 +644,7 @@ a:hover, a:active, a:focus {
 }
 
 .sidebar-mini:not (.sidebar-mini-expand-feature ).sidebar-collapse .sidebar-menu>li:hover>a>span:not
-	(.pull-right ), .sidebar-mini:not (.sidebar-mini-expand-feature ).sidebar-collapse .sidebar-menu>li:hover>.treeview-menu
+	 (.pull-right ), .sidebar-mini:not (.sidebar-mini-expand-feature ).sidebar-collapse .sidebar-menu>li:hover>.treeview-menu
 	{
 	display: block !important;
 	position: absolute;
@@ -670,11 +670,39 @@ a:hover, a:active, a:focus {
 	z-index: 900
 }
 
-.sidebar-mini:not (.sidebar-mini-expand-feature ).sidebar-collapse .sidebar-menu>li:hover>a>.pull-right-container>.label:not
-	(:first-of-type ){
-	display: none
-}
+.sidebar-mini
+:not
+ 
+(
+.sidebar-mini-expand-feature
+ 
+)
+.sidebar-collapse
+ 
+.sidebar-menu
+>
+li
+:hover
+>
+a
+>
+.pull-right-container
+>
+.label
+:not
 
+	
+(
+:first-of-type
+ 
+){
+display
+:
+ 
+none
+
+
+}
 .sidebar-mini:not (.sidebar-mini-expand-feature ).sidebar-collapse .sidebar-menu>li:hover>.treeview-menu
 	{
 	top: 44px;
@@ -1287,49 +1315,87 @@ keyframes flipInX { 0%{
 
 40%{
 transform
+
+
 :perspective(400px)
+
  
+
 rotate3d
+
+
 (1
 ,
 0,
 0,
 -20
 deg
-);transition-timing-function
+
+
+);
+transition-timing-function
+
+
 :ease-in
+
+
 }
 60%{
 transform
+
+
 :perspective(400px)
+
  
+
 rotate3d
+
+
 (1
 ,
 0,
 0,
 10
 deg
-);opacity
+
+
+);
+opacity
+
+
 :
+
+
 1
 }
 80%{
 transform
+
+
 :perspective(400px)
+
  
+
 rotate3d
+
+
 (1
 ,
 0,
 0,
 -5
 deg
+
+
 )
 }
 100%{
 transform
+
+
 :perspective(400px)
+
+
 }
 }
 @
@@ -1341,49 +1407,87 @@ transform
 
 40%{
 -webkit-transform
+
+
 :perspective(400px)
+
  
+
 rotate3d
+
+
 (1
 ,
 0,
 0,
 -20
 deg
-);-webkit-transition-timing-function
+
+
+);
+-webkit-transition-timing-function
+
+
 :ease-in
+
+
 }
 60%{
 -webkit-transform
+
+
 :perspective(400px)
+
  
+
 rotate3d
+
+
 (1
 ,
 0,
 0,
 10
 deg
-);opacity
+
+
+);
+opacity
+
+
 :
+
+
 1
 }
 80%{
 -webkit-transform
+
+
 :perspective(400px)
+
  
+
 rotate3d
+
+
 (1
 ,
 0,
 0,
 -5
 deg
+
+
 )
 }
 100%{
 -webkit-transform
+
+
 :perspective(400px)
+
+
 }
 }
 .navbar-custom-menu>.navbar-nav>li {
@@ -1426,7 +1530,7 @@ deg
 
 .form-control::-moz-placeholder, .form-control:-ms-input-placeholder,
 	.form-control::-webkit-input-placeholder {
-color: #FF9F07;
+	color: #FF9F07;
 }
 
 .form-control:not(select) {
@@ -1490,8 +1594,8 @@ color: #FF9F07;
 
 .icheck>label {
 	padding-left: 0;
-	  color: #FF9F07;
-    text-decoration: underline;
+	color: #FF9F07;
+	text-decoration: underline;
 }
 
 .form-control-feedback.fa {
@@ -1758,7 +1862,7 @@ color: #FF9F07;
 	border-radius: 3px;
 	background: #ffffff;
 	border: 1px solid #d2d6de;
-	border-color:#FF9F07;
+	border-color: #FF9F07;
 	margin-bottom: 20px;
 	width: 100%;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1)
@@ -1994,11 +2098,11 @@ color: #FF9F07;
 
 .box-header>.fa, .box-header>.glyphicon, .box-header>.ion, .box-header .box-title
 	{
-	text-align:center;
+	text-align: center;
 	font-size: 18px;
 	margin: 0;
 	line-height: 1;
-	 font-weight: bold;
+	font-weight: bold;
 }
 
 .box-header>.fa, .box-header>.glyphicon, .box-header>.ion {
@@ -2519,8 +2623,7 @@ color: #FF9F07;
 	-moz-box-shadow: none;
 	box-shadow: none;
 	border-width: 1px;
-	border-radius:10px;
-	
+	border-radius: 10px;
 }
 
 .btn:active {
@@ -2557,7 +2660,6 @@ color: #FF9F07;
 .btn-default {
 	background-color: #f4f4f4;
 	color: #444;
-	
 }
 
 .btn-default:hover, .btn-default:active, .btn-default.hover {
@@ -2566,8 +2668,7 @@ color: #FF9F07;
 
 .btn-primary {
 	background: linear-gradient(#FFF, #FF9F07);
-	    border-color: #FF9F07;
-
+	border-color: #FF9F07;
 }
 
 .btn-primary:hover, .btn-primary:active, .btn-primary.hover {
@@ -2848,7 +2949,7 @@ color: #FF9F07;
 }
 
 .nav-tabs-custom>.nav-tabs>li:not (.active )>a:hover, .nav-tabs-custom>.nav-tabs>li:not
-	(.active )>a:focus, .nav-tabs-custom>.nav-tabs>li:not (.active )>a:active
+	 (.active )>a:focus, .nav-tabs-custom>.nav-tabs>li:not (.active )>a:active
 	{
 	border-color: transparent
 }
@@ -5560,5 +5661,16 @@ table.text-center, table.text-center td, table.text-center th {
 	.table-responsive>.table tr th, .table-responsive>.table tr td {
 		white-space: normal !important
 	}
+	
+	.float-right{
+		float:right;
+	}
+	
+	.promotions{
+		color: #f39c12 !important;
+		 font-weight: bold;
+		 font-size: xx-large;
+		
+	}
+	
 }
-

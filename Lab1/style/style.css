@@ -298,6 +298,12 @@
             transform: scale(1, 5);
     background: #195c53;
   }
+  .promotions{
+			color: #f39c12 !important;
+		 font-weight: bold;
+		 font-size: xx-large;
+		
+	}
 }
 
 

@@ -5,10 +5,10 @@
 
 
 
-	<a class="text-blue" href="url">Ajouter une promotion</a>
+	<a class="text-blue float-right" href="url"><u>Ajouter une promotion</u></a>
 	<div class="box box-warning">
 		<p class="col-xs-6">Rabais client engagé</p>
-		<p class="col-xs-5">30%</p>
+		<p class="col-xs-5 text-yellow">30%</p>
 		<div class="input-group-btn" class="col-xs-1">
 			<button type="button" class="btn btn-warning dropdown-toggle"
 				data-toggle="dropdown" aria-expanded="false">
@@ -24,7 +24,7 @@
 	</div>
 	<div class="box box-warning">
 		<p class="col-xs-6">Rabais client engagé</p>
-		<p class="col-xs-5">30%</p>
+		<p class="col-xs-5 text-yellow">30%</p>
 		<div class="input-group-btn" class="col-xs-1">
 			<button type="button" class="btn btn-warning dropdown-toggle"
 				data-toggle="dropdown" aria-expanded="false">
@@ -40,7 +40,7 @@
 	</div>
 	<div class="box box-warning">
 		<p class="col-xs-6">Rabais client engagé</p>
-		<p class="col-xs-5">30%</p>
+		<p class="col-xs-5 text-yellow">30%</p>
 		<div class="input-group-btn" class="col-xs-1">
 			<button type="button" class="btn btn-warning dropdown-toggle"
 				data-toggle="dropdown" aria-expanded="false">
