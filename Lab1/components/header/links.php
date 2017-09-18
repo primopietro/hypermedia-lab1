@@ -26,7 +26,7 @@ function getHeaderLinks($aUser){
 				              <span class='hidden-xs textOrange'>Promotion</span>
 				            </a>
 				          </li>
-				          <li class='dropdown user user-menu'>
+				          <li class='dropdown user user-menu'  shopLink='panel/factureList'>
 				            <a href='#' >
 				              <span class='hidden-xs textRed'>Facture</span>
 				            </a>

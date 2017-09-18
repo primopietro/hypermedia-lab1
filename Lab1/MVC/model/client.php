@@ -138,7 +138,7 @@ class Client extends BaseModel {
 	}
 	public function getInfoFromPk_utilisateur($pkUser) {
 		// Include database connection
-		require '../DB/dbConnect.php';
+		require$_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
 		
 		$pkUser = htmlspecialchars ( $pkUser );
 		

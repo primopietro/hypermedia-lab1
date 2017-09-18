@@ -1,7 +1,7 @@
 <?php
 require_once'baseModel.php';
 
-class Facture extends BaseModel {
+class TA_Facture_Service extends BaseModel {
     
     protected $table_name = 'TA_Facture_Service';
     protected $primary_key = "pk_facture_service";
