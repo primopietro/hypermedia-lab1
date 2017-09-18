@@ -51,6 +51,7 @@ echo "
 max-height:75px;
 margin:5px;
 }
+
 </style>
 </head>
 <body class='skin-blue sidebar-mini'>

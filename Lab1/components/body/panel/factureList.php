@@ -120,7 +120,7 @@ function getFactureComponentAdmin($aFacture){
 				<div class='text-blue  col-xs-2'></div>
 				<div class='text-blue  col-xs-4'>".$aFacture['no_confirmation']."</div>
 				<div class='text-blue col-xs-4 float-right'>".$aFacture['price']."$</div>
-				<div class='text-blue col-xs-2 float-right'><a class='text-black ' href='javascript:void(0)'><u  data-toggle='collapse' data-target='#details".$aFacture['pk_facture']."'>Détail</u></a></div>
+				<div class='text-blue col-xs-2 float-right'><a class='text-black ' href='javascript:void(0)'><span  data-toggle='collapse' data-target='#details".$aFacture['pk_facture']."'>Détail</span></a></div>
 			</div>
 		</div>
 		<div id='details".$aFacture['pk_facture']."' class='collapse'>";
