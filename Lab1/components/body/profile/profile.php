@@ -24,7 +24,7 @@ $form = "<div style='width:500px;margin:auto;'>
        <p class='14p'>Remplissez ce formulaire pour créer votre profil</p>
        <p class='text-red 10p'>Tous les champs sont obligatoire</p>
      <div class='form-group  col-md-6 '>
-        <input class='form-control' placeholder='Name' name='Name' value='".  $_SESSION["currentClient"]->getPrenom()."'>
+        <input class='form-control' placeholder='Name' name='Name'  value='".  $_SESSION["currentClient"]->getPrenom()."'>
       </div>
        <div class='form-group  col-md-6'>
         <input class='form-control' placeholder='Family Name' name='familyName' value='".  $_SESSION["currentClient"]->getNom()."'>
@@ -56,13 +56,13 @@ $form = "<div style='width:500px;margin:auto;'>
          <p class='14p'>Votre courriel servira à vous identifier lors de votre prochaine visite</p>
          <p class='text-red 10p'>Le mot de passe doit avoir au moin 1 chiffre, 1 lettre et 8 caractere minimum</p>
       <div class='form-group col-md-6'>
-        <input class='form-control' placeholder='Email' type='email' value='".  $_SESSION["currentUser"]->getCourriel() ."'>
+        <input class='form-control' placeholder='Email' type='email name='couriel' id='couriel' value='".  $_SESSION["currentUser"]->getCourriel() ."'>
       </div>
       <div class='form-group  col-md-6'>
         <input class='form-control' placeholder='Confirm email' type='email' value='".  $_SESSION["currentUser"]->getCourriel() ."'>
       </div>
       <div class='form-group  col-md-6'>
-        <input class='form-control' placeholder='Password' type='password' value='".  $_SESSION["currentUser"]->getMot_de_passe() ."'>
+        <input class='form-control' placeholder='Password' type='password'  name='password' value='".  $_SESSION["currentUser"]->getMot_de_passe() ."'>
       </div>
       <div class='form-group  col-md-6'>
         <input class='form-control' placeholder='Confirm password' type='password' value='".  $_SESSION["currentUser"]->getMot_de_passe() ."'>
