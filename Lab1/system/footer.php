@@ -5,7 +5,12 @@ echo "
 		<span></span><span></span><span></span><span></span><span></span>
 	</div>
 </div>
-<script src=' bower_components/jquery/dist/jquery.min.js'></script>
+<script>
+window.nodeRequire = require; 
+delete window.require;
+delete window.exports; delete window.module; 
+</script>
+<script src='bower_components/jquery/dist/jquery.min.js'></script>
 <!-- jQuery UI 1.11.4 -->
 <script src='bower_components/jquery-ui/jquery-ui.min.js'></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/service.php');
 
 
@@ -33,7 +33,7 @@ function getCatalogComponent($aService){
 				<div class='box'>
 					<div class='box-header with-border'>
 						<h3 class='box-title'>".$aService['service_titre']."</h3>
-
+								
 						<div class='box-tools pull-right'>
 							<button type='button' class='btn btn-box-tool'
 								data-widget='collapse'>
@@ -45,7 +45,7 @@ function getCatalogComponent($aService){
 							</button>
 						</div>
 					</div>
-
+								
 					<div class='box-body'>
 						<div class='row'>
 						<div class='col-md-2'><img class='img-responsive'  src='images/services/".$aService['image']."'></div>
@@ -58,11 +58,11 @@ function getCatalogComponent($aService){
             					</div>
 							</div>
 						</div>
-						
+            								
 					</div>
-
+            								
 					<!-- ./box-body -->
-					
+            								
 					<!-- /.box-footer -->
 				</div>
 				<!-- /.box -->

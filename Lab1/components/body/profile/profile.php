@@ -20,7 +20,7 @@ $form = "<div style='width:500px;margin:auto;'>
            <div class='login-box-body'>
  
 
-    <form action='../../index2.html' method='post'>
+    <form action='AJAX/updateClientUser.php' method='post'>
        <p class='14p'>Remplissez ce formulaire pour créer votre profil</p>
        <p class='text-red 10p'>Tous les champs sont obligatoire</p>
      <div class='form-group  col-md-6 '>

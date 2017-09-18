@@ -5,23 +5,23 @@ require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/util
 function getHeaderLinks($aUser){
 	$links ="";
 	if (!$aUser->getAdministrateur()) {
-		$links = " <li class='dropdown user user-menu active' shopLink='panel'>
+		$links = " <li class='dropdown user user-menu active' shopLink='panel/panel'>
 					            <a href='#' >
 					              <span class='hidden-xs textOrange'>Catalogue</span>
 					            </a>
 					          </li>
-					          <li class='dropdown user user-menu' shopLink='profile'>
+					          <li class='dropdown user user-menu' shopLink='profile/profile'>
 					            <a href='#' >
 					              <span class='hidden-xs textRed'>Profil</span>
 					            </a>
 					          </li>";
 	}
 	else{
-		$links = " <li class='dropdown user user-menu active' >
+		$links = " <li class='dropdown user user-menu active' shopLink='panel/panel'>
 				            <a href='#' >
 				              <span class='hidden-xs textOrange'>Service</span>
 				            </a>
-				          </li><li class='dropdown user user-menu active' >
+				          </li><li class='dropdown user user-menu ' shopLink='panel/promotionList'>
 				            <a href='#' >
 				              <span class='hidden-xs textOrange'>Promotion</span>
 				            </a>
