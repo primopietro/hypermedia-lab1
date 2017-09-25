@@ -123,6 +123,7 @@ $(document).on("click",".dropdown.user.user-menu",function(){
 
 //Add promotion event click
 $(document).on("click","#addPromotion",function(){
+	
 	$.ajax({
 		url : ajaxPath + "components/body/modal/addPromotion.php",
 		beforeSend : function() { enableLoader() ;
@@ -130,6 +131,7 @@ $(document).on("click","#addPromotion",function(){
 		}
 	}).done(function(data) {
 		console.log(" getting  promotion modal success");
+	
 		  $("#addPromotion").closest("section").append(data);
 		  $("#getCodeModal").modal('show');
 	}).always(function() { disableLoader();
@@ -141,6 +143,7 @@ $(document).on("click","#addPromotion",function(){
 
 //Add promotion event click
 $(document).on("click",".addPromotionService",function(){
+	$("#getCodeModal").remove();
 	var idObject = $(this).attr("idobject");
 	$.ajax({
 		url : ajaxPath + "components/body/modal/addPromotionService.php?idobj="+idObject,
