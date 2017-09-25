@@ -178,9 +178,9 @@ $(document).on("click","#addPromotionBD",function(){
 	}).done(function(data) {
 		console.log(" getting response add promotion to service success");
 		if(data=="success"){
-			$(".modal-backdrop").remove();
-			$("#getCodeModal").remove();
+			
 			getBody();
+			$("#getCodeModal").modal('hide');
 		}
 		
 	}).always(function() { disableLoader();
