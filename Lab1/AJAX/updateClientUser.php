@@ -15,7 +15,7 @@ $nCivic = htmlspecialchars($_POST["nCivic"]);
 $rue = htmlspecialchars($_POST["rue"]);
 $CP = htmlspecialchars($_POST["CP"]);
 $telephone = htmlspecialchars($_POST["telephone"]);
-$email = htmlspecialchars($_POST["couriel"]);
+$email = htmlspecialchars($_POST["courriel"]);
 $password = htmlspecialchars($_POST["password"]);
 
 $anAdress = new Adresse();
@@ -28,7 +28,9 @@ $anAdress->setCode_postal($CP);
 $_SESSION["currentClient"]->setPrenom($name);
 $_SESSION["currentClient"]->setNom($familyName);
 $_SESSION["currentClient"]->setTelephone($telephone);
-$_SESSION["currentClient"]->setCourriel($email);
-$_SESSION["currentClient"]->setMot_de_passe($password);
-
+$_SESSION["currentClient"]->setTelephone($telephone);
+$_SESSION["currentUser"]->setMot_de_passe($password);
+ 
+$_SESSION["currentClient"]->updateDBObject();
+$_SESSION["currentUser"]->updateDBObject();
 ?>

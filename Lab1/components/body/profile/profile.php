@@ -55,8 +55,8 @@ $form = "<div style='width:500px;margin:auto;'>
       </div>
          <p class='14p'>Votre courriel servira à vous identifier lors de votre prochaine visite</p>
          <p class='text-red 10p'>Le mot de passe doit avoir au moin 1 chiffre, 1 lettre et 8 caractere minimum</p>
-      <div class='form-group col-md-6'>
-        <input class='form-control' placeholder='Email' type='email name='couriel' id='couriel' value='".  $_SESSION["currentUser"]->getCourriel() ."'>
+     <div class='form-group  col-md-6'>
+        <input class='form-control' placeholder='Email' type='email'  name='courriel' value='".  $_SESSION["currentUser"]->getCourriel() ."'>
       </div>
       <div class='form-group  col-md-6'>
         <input class='form-control' placeholder='Confirm email' type='email' value='".  $_SESSION["currentUser"]->getCourriel() ."'>
