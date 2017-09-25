@@ -15,8 +15,10 @@ if(array_key_exists ( "currentUser" , $_SESSION)){
 }
 
 function printAdmin(){
-	$content ="<div style='max-width:1000px;margin:auto;'><section class='content'>";
-	$content .="<a href='#' class='floatRight'>Ajouter une promotion</a>";
+	
+	$content ="<div style='max-width:1000px;margin:auto;'><section class='content' >";
+	$content .="<section class='content' style='    height: 50px !important;min-height: 50px;'><a  class='floatRight' id='addPromotion'>Ajouter une promotion</a></section>";
+	
 	$content .= getPromotionListAdmin();
 	
 	$content .= "<div class='col-xs-4'>

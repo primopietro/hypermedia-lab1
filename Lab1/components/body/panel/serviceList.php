@@ -2,8 +2,21 @@
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/service.php');
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/Promotion.php');
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/TA_Promotion_Service.php');
+require_once ('catalogList.php');
+
+
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
+}
+
+if(isset($_GET['printList'])){
+	if($_GET['printList']=="true"){
+		printServiceListAdmin();
+	}
+	else{
+		echo "fail";
+	}
+	
 }
 function getServiceListAdmin(){
 	
@@ -93,7 +106,7 @@ function getServiceComponentAdmin($aService,$aPromotionList){
 		
 	}
 	$markup.="<div class='col-md-2'>
-												<a href='#' style='color:blue;font-size:60px;'>+</a>
+												<a style='color:blue;font-size:60px;' class='addPromotionService' idobject='".$aService['pk_service']."'>+</a>
 											</div>
 											<div class='col-md-2 floatRight'>
 												<img class='img-responsive' src='images/icones/medias_sociaux.jpeg'>

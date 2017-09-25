@@ -13,6 +13,8 @@ class BaseModel {
         $attributes = " ( ";
         $values = " VALUES (";
         $lastElement = end ( $internalAttributes );
+        $counter =0;
+        
         foreach ( $internalAttributes as $rowName => $value ) {
             if ($rowName != "table_name" && $rowName != "primary_key") {
               
@@ -23,11 +25,12 @@ class BaseModel {
                     $values .= "'" . $value . "'";
                 }
                 
-                if ($value != $lastElement  || $rowName != "id_state") {
+                if ((sizeof($internalAttributes)-1) > $counter) {
                     $attributes .= ",";
                     $values .= ",";
                 }
             }
+            $counter++;
         }
         
         $attributes .= " ) ";
@@ -36,7 +39,8 @@ class BaseModel {
         $sql = $definition . $attributes . $values;
     
         if (! $result = $conn->query ( $sql )) {
-            echo "fail";
+        	echo $sql;
+            echo " fail";
             exit ();
         } else {
             echo "success";

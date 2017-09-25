@@ -121,6 +121,75 @@ $(document).on("click",".dropdown.user.user-menu",function(){
 	}
 });
 
+//Add promotion event click
+$(document).on("click","#addPromotion",function(){
+	$.ajax({
+		url : ajaxPath + "components/body/modal/addPromotion.php",
+		beforeSend : function() { enableLoader() ;
+			console.log("getting promotion modal started");
+		}
+	}).done(function(data) {
+		console.log(" getting  promotion modal success");
+		  $("#addPromotion").closest("section").append(data);
+		  $("#getCodeModal").modal('show');
+	}).always(function() { disableLoader();
+		console.log(" getting  promotion modalfinished");
+	});
+	
+	
+});
+
+//Add promotion event click
+$(document).on("click",".addPromotionService",function(){
+	var idObject = $(this).attr("idobject");
+	$.ajax({
+		url : ajaxPath + "components/body/modal/addPromotionService.php?idobj="+idObject,
+		beforeSend : function() { enableLoader() ;
+			console.log("getting promotion modal started");
+		}
+	}).done(function(data) {
+		console.log(" getting  promotion modal success");
+		  $("body").append(data);
+		  $("#getCodeModal").modal('show');
+	}).always(function() { disableLoader();
+		console.log(" getting  promotion modalfinished");
+	});
+	
+});
+
+$(document).on("change","#aPromotion",function(e){
+var newIndex = $("#aPromotion")[0].selectedIndex +1;
+var selected = $("#aPromotion option:nth-child("+newIndex+")");
+	$("#promoValue").html(selected.attr("valuePromo")+"%");
+});
+//Add promotion
+$(document).on("click","#addPromotionBD",function(){
+	var selectedIndex=$("#aPromotion")[0].selectedIndex +1;
+	var promoID = $("#aPromotion option:nth-child("+selectedIndex+")").attr("idobj");
+	var data="idService="+$(this).attr("idobj")+"&code="+$("#codePromotion").val()+"&idPromotion="+promoID+"&date_debut="+$("#date_debut").val()+"&date_fin="+$("#date_fin").val();
+
+	
+	$.ajax({
+		url : ajaxPath + "AJAX/addPromotionService.php",
+		data:data,
+		beforeSend : function() { enableLoader() ;
+		
+		}
+	}).done(function(data) {
+		console.log(" getting response add promotion to service success");
+		if(data=="success"){
+			$(".modal-backdrop").remove();
+			$("#getCodeModal").remove();
+			getBody();
+		}
+		
+	}).always(function() { disableLoader();
+	
+		console.log(" getting response add promotion to service finished");
+	});
+});
+
+
 
 //Get new header
 function getHeader(){
@@ -137,6 +206,7 @@ function getHeader(){
 		console.log(" getting new header finished");
 	});
 }
+
 
 
 //Get new body
