@@ -124,7 +124,7 @@ $(document).on("click",".dropdown.user.user-menu",function(){
 //Add promotion event click
 $(document).on("click","#addPromotion",function(){
 	
-	$.ajax({
+	/*$.ajax({
 		url : ajaxPath + "components/body/modal/addPromotion.php",
 		beforeSend : function() { enableLoader() ;
 			console.log("getting promotion modal started");
@@ -136,11 +136,36 @@ $(document).on("click","#addPromotion",function(){
 		  $("#getCodeModal").modal('show');
 	}).always(function() { disableLoader();
 		console.log(" getting  promotion modalfinished");
-	});
-	
+	});*/
+	document.getElementById('buttonModificationPromo').style.display = 'none';
+	document.getElementById('promotionForm').style.display = 'block';
 	
 });
-
+//Add promotion event click
+$(document).on("click","#updatePromotion",function(){
+	
+	document.getElementById('titrePromo').disabled = false;
+	document.getElementById('rabaisPromo').disabled = false;
+	
+});
+//Delete promotion event click
+$(document).on("click","#deletePromotion",function(){
+	$("#promo").remove();
+	var idObject = $(this).attr("idobject");
+	$.ajax({
+		url : ajaxPath + "AJAX/deletePromotion.php?idobj="+idObject,
+		beforeSend : function() { enableLoader() ;
+			console.log("getting promotion modal started");
+		}
+	}).done(function(data) {
+		console.log(" getting  promotion modal success");
+		  $("body").append(data);
+		  $("#getCodeModal").modal('show');
+	}).always(function() { disableLoader();
+		console.log(" getting  promotion modalfinished");
+	});
+	
+});
 //Add promotion event click
 $(document).on("click",".addPromotionService",function(){
 	$("#getCodeModal").remove();
@@ -191,6 +216,8 @@ $(document).on("click","#addPromotionBD",function(){
 		console.log(" getting response add promotion to service finished");
 	});
 });
+
+
 
 
 
