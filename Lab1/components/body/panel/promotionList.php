@@ -16,23 +16,23 @@ if(array_key_exists ( "currentUser" , $_SESSION)){
 
 function printAdmin(){
 	
-	$content ="<div style='max-width:1000px;margin:auto;'><section class='content' >";
+	$content ="<div style='max-width:1000px;margin:auto;'><section class='content' ><form action='AJAX/updatePromotion.php' method='post'>";
 	$content .="<section class='content' style='    height: 50px !important;min-height: 50px;'><a  class='floatRight' id='addPromotion'>Ajouter une promotion</a></section>";
 	
 	$content .= getPromotionListAdmin();
 	
 	$content .= "<div class='col-xs-4'>
 		<button type='submit' class='btn btn-primary btn-block btn-flat'
-			style='float: right;'>Confirmer</button>
+			style='float: right;'>Confirmer</button></form>
 	</div><section></div>";
 	echo $content;
 }
 function getPromotionComponent($aPromotion){
 	$temp = $aPromotion['rabais']*100;
 	$name = $aPromotion['promotion_titre'];
-	$promotionComponent="<div class='box box-warning promotionItem' >
-		<div class='col-xs-6'><input  value='$name'></div>
-		<div class='col-xs-5'><input style='text-align:right' value='$temp'>%</div>
+	$promotionComponent="<div class='box box-warning promotionItem'>
+		<div class='col-xs-6'><input  name='titre' value='$name'></div>
+		<div class='col-xs-5'><input name='rabais' style='text-align:right' value='$temp'>%</div>
 		<div class='input-group-btn' class='col-xs-1'>
 			<button type='button' class='btn btn-warning dropdown-toggle'
 				data-toggle='dropdown' aria-expanded='false'>
