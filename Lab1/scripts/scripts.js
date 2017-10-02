@@ -610,9 +610,14 @@ function getBody(){
 // Enable loader
 function enableLoader() {
 	$("#loader-3").css("display", "table");
+	$("header").css("filter","blur(2px) brightness(90%)");
+	$("#mainContent").css("filter","blur(2px) brightness(90%)");
 }
 
 // Disable loader
 function disableLoader() {
 	$("#loader-3").css("display", "none");
+
+	$("header").css("filter","none");
+	$("#mainContent").css("filter","none");
 } 
