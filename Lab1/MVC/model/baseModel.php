@@ -104,16 +104,16 @@ class BaseModel {
     
     // Set to disabled
     function removeDBObject($anID) {
-        $sql = "UPDATE `" . $this->table_name . "`
-		SET `id_state` = '2'
-		WHERE  `" . $this->table_name . "`.`" . $this->primary_key . "` = '$anID' ";
+        $sql = "DELETE FROM `" . $this->table_name . "`
+ 		WHERE `" . $this->table_name . "`.`" . $this->primary_key . "` = $anID";
         
         include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
-        
+       
         if ($conn->query ( $sql ) === TRUE) {
-            return "success";
+        	echo "success";
         } else {
-            return "fail";
+        	echo "fail";
+        	echo $sql;
         }
         
         $conn->close ();

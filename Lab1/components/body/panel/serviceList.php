@@ -44,6 +44,7 @@ function getPromotionsForService($aService){
 				$promotionTemp['start_date'] = $aPromotionService['date_debut'];
 				$promotionTemp['finish_date'] = $aPromotionService['date_fin'];
 				$promotionTemp['code'] = $aPromotionService['code'];
+				$promotionTemp['pk_promotion_service'] =  $aPromotionService['pk_promotion_service'];
 				$aPromotionListForService[$promotionTemp['pk_promotion']] = $promotionTemp;
 			}
 		}
@@ -139,10 +140,11 @@ function getModifyServiceButton($aService){
 			<span class='fa fa-caret-down'></span>
 	</button>
 			<ul class='dropdown-menu' style='transform: translatex(34px) translatey(-3px);'>
-	<li><a href='#'>Modifier le service</a></li>
-	<li><a href='#'>Desactiver le service</a></li>
+	<li class='action' action='update' objtype='".$aService['table_name']."' idobj='".$aService['pk_service']."'><a >Modifier le service</a></li>
+	<li class='action' action='remove' objtype='".$aService['table_name']."' idobj='".$aService['pk_service']."'><a >Desactiver le service</a></li>
 			</ul>
 	</div>";
+	
 	return $button;
 }
 function getModifyPromotionComponent($aPromotion){
@@ -160,8 +162,8 @@ function getModifyPromotionComponent($aPromotion){
 	<span class='fa fa-caret-down'></span>
 	</button>
 	<ul class='dropdown-menu'>
-	<li><a href='#'>Modifier la promotion</a></li>
-	<li><a href='#'>Supprimer la promotion</a></li>
+	<li class='action' action='update' objtype='TA_Promotion_Service' idobj='".$aPromotion['pk_promotion_service']."'><a >Modifier la promotion</a></li>
+	<li class='action' action='remove' objtype='TA_Promotion_Service' idobj='".$aPromotion['pk_promotion_service']."'><a>Supprimer la promotion</a></li>
 	</ul>
 	</div>
 	<div class='promoVal'>$tempValPromo %</div>
@@ -169,5 +171,6 @@ function getModifyPromotionComponent($aPromotion){
 	<div class='promoCode'>$code</div>
 	</div>
 	</div>";
+	
 	return $markup;
 }

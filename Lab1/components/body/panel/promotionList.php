@@ -21,20 +21,20 @@ function printAdmin(){
 	
 	$content .= getPromotionListAdmin();
 	
-	
+	/*
 	$content .= "<div class='col-xs-4'>
 		<button id='buttonModificationPromo' type='submit' class='btn btn-primary btn-block btn-flat'
 			style='float: right; style='display:block'>Confirmer</button></form>
 	</div><section></div>";
-	$content .= getPromotionForm();
+	$content .= getPromotionForm();*/
 	echo $content;
 }
 function getPromotionComponent($aPromotion){
 	$temp = $aPromotion['rabais']*100;
 	$name = $aPromotion['promotion_titre'];
-	$promotionComponent="<div class='box box-warning promotionItem'id='promo'>
-		<div class='col-xs-6'><input  name='titre'  id='titrePromo' value='$name'disabled></div>
-		<div class='col-xs-5'><input name='rabais' id='rabaisPromo'style='text-align:right' value='$temp' disabled>%</div>
+	$promotionComponent="<div class='box box-warning promotionItem' id='promo".$aPromotion['pk_promotion']."'>
+		<div class='col-xs-6'><input  name='titre'  class='titrePromo ' value='$name' ></div>
+		<div class='col-xs-5'><input name='rabais' class='rabaisPromo  'style='text-align:right' value='$temp' >%</div>
 		<div class='input-group-btn' class='col-xs-1'>
 			<button type='button' class='btn btn-warning dropdown-toggle'
 				data-toggle='dropdown' aria-expanded='false'>
@@ -42,9 +42,9 @@ function getPromotionComponent($aPromotion){
 				<span class='fa fa-caret-down'></span>
 			</button>
 			<ul class='dropdown-menu' >
-				<li><a href='#'>Appliquer Ã  tous les services</a></li>
-				<li id='updatePromotion'><a href='#'>Modifier la promotion</a></li>
-				<li id='deletePromotion'><a href='#'>Supprimer la promotion</a></li>
+				<li id='addAllPromotions' idobj='".$aPromotion['pk_promotion']."'><a >Appliquer a  tous les services</a></li>
+				<li class='action' action='update' objtype='".$aPromotion['table_name']."' idobj='".$aPromotion['pk_promotion']."'><a >Modifier la promotion</a></li>
+				<li class='action' action='remove' objtype='".$aPromotion['table_name']."' idobj='".$aPromotion['pk_promotion']."'><a >Supprimer la promotion</a></li>
 			</ul>
 		</div>
 	</div>";

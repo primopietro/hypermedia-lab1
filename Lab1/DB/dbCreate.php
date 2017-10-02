@@ -516,14 +516,14 @@ ALTER TABLE `facture`
 --
 ALTER TABLE `ta_facture_service`
   ADD CONSTRAINT `fk_facture` FOREIGN KEY (`fk_facture`) REFERENCES `facture` (`pk_facture`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_service1` FOREIGN KEY (`fk_service`) REFERENCES `service` (`pk_service`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_service1` FOREIGN KEY (`fk_service`) REFERENCES `service` (`pk_service`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ta_promotion_service`
 --
 ALTER TABLE `ta_promotion_service`
-  ADD CONSTRAINT `fk_promotion` FOREIGN KEY (`fk_promotion`) REFERENCES `promotion` (`pk_promotion`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_service` FOREIGN KEY (`fk_service`) REFERENCES `service` (`pk_service`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_promotion` FOREIGN KEY (`fk_promotion`) REFERENCES `promotion` (`pk_promotion`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_service` FOREIGN KEY (`fk_service`) REFERENCES `service` (`pk_service`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

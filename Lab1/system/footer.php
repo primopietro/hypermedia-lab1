@@ -6,9 +6,9 @@ echo "
 	</div>
 </div>
 <script>
-window.nodeRequire = require; 
-delete window.require;
-delete window.exports; delete window.module; 
+//window.nodeRequire = require; 
+//delete window.require;
+//delete window.exports; delete window.module; 
 </script>
 <script src='bower_components/jquery/dist/jquery.min.js'></script>
 <!-- jQuery UI 1.11.4 -->
