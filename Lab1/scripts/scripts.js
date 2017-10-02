@@ -115,6 +115,25 @@ $(document).on("click",".action",function(){
 			}).always(function() { disableLoader();
 				console.log(" getting  promotion modalfinished");
 			});
+		}else if(objectType == "TA_Promotion_Service"){
+			$.ajax({
+				url : ajaxPath + "components/body/modal/updatePromotionService.php",
+				data:data,
+				type:'POST',
+				beforeSend : function() { enableLoader() ;
+					console.log("getting promotion modal started");
+
+					 $("#getCodeModal").remove();
+				}
+			}).done(function(data) {
+
+				console.log(" getting  promotion modal success");
+				
+				$("body").append(data);
+				  $("#getCodeModal").modal('show');
+			}).always(function() { disableLoader();
+				console.log(" getting  promotion modalfinished");
+			});
 		}
 		
 		
@@ -129,6 +148,11 @@ $(document).on("click",".updateObj",function(){
 		var name=$("#titrePromoNew").val();
 		var value=$("#rabaisPromoNew").val();
 		data+="&name="+name+"&value="+value;
+	}else if(objectType == "TA_Promotion_Service"){
+		var dateDebut=$("#date_debutNew").val();
+		var dateFin=$("#date_finNew").val();
+		var code=$("#codePromotionNew").val();
+		data+="&date_debut="+dateDebut+"&date_fin="+dateFin+"&code="+code;
 	}
 	$.ajax({
 		url : ajaxPath + "AJAX/update.php",
@@ -149,6 +173,10 @@ $(document).on("click",".updateObj",function(){
 		console.log(" update "+objectType+" finished");
 		getHeader();
 		getBody();
+		if(objectType == "TA_Promotion_Service"){
+			$("#getCodeModal").remove();
+		}
+		
 		$(".modal-backdrop.fade.in").remove();
 		$("body").removeClass("modal-open");
 	});
