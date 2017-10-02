@@ -2,7 +2,8 @@
 
 
 
-$modal="<div class='modal fade' id='getCodeModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+$modal=" <form name='formaddService' action='AJAX/addService.php'  onsubmit='return validateServiceForm()'   method='post'>
+<div class='modal fade' id='getCodeModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
 
 
 <div style='width: 700px; margin: auto;'>
@@ -20,34 +21,35 @@ $modal="<div class='modal fade' id='getCodeModal' tabindex='-1' role='dialog' ar
        		 <input type='file' name='fileToUpload' id='photoNew'>
        </div>
      <div class='form-group has-feedback col-xs-8'>
-        <input id='titreNew' class='form-control' placeholder='Titre' name='titre'>
+        <input id='titreNew' class='form-control' placeholder='Titre' name='titre' required>
       </div>
        <div class='form-group has-feedback col-xs-8'>
-        <input id='descriptionNew' class='form-control' placeholder='Description' name='description'>
+        <input id='descriptionNew' class='form-control' placeholder='Description' name='description' required>
       </div>
       <div class='form-group has-feedback col-xs-4'>
-        <input id='dureeNew' class='form-control' placeholder='Durée' name='duree'>
+        <input id='dureeNew' class='form-control' placeholder='Durée' name='duree' required>
       </div>
       
       <div class='form-group has-feedback col-xs-4'>
-        <input id='tarifNew' class='form-control' placeholder='Tarif' name='Tarif'>
+        <input id='tarifNew' class='form-control' placeholder='Tarif' name='tarif' required>
       </div>
      
       <div class='row'>
         <div class='col-xs-8'>
         <div class='checkbox'>
                   <label class='text-blue'>
-                    <input id='actifNew' type='checkbox' name='actif' >Activer le service dans le catalogue
+                    <input id='actifNew' type='hidden' name='actif' value='0' >
+                    <input id='actifNew' type='checkbox' name='actif' value='on' >Activer le service dans le catalogue
                   </label>
                 </div>
          
         </div>
         <!-- /.col -->
         <div class='col-xs-6'>
-          <a  class='btn btn-primary btn-block btn-flat addObj' style='float:right;'>Confirmer</a>
+          <button  class='btn btn-primary btn-block btn-flat ' style='float:right;'>Confirmer</button>
         </div>
       </div>
       
-    </div></div></div>";
+    </div></div></div></form>";
 
 echo $modal;
