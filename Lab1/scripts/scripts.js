@@ -405,7 +405,11 @@ $(document).on("click",".addObj",function(){
 		data+="&tarif="+tarif;
 		data+="&duree="+duree;
 		data+="&isActive="+isActive;
-		data+="&photoName="+files[0].name;
+		if(files != null){
+			data+="&photoName="+files[0].name;
+		}else{
+			data+="&photoName=";
+		}
 		  $.ajax({
 		        url: ajaxPath + 'AJAX/uploadPhoto.php?files',
 		        type: 'POST',
