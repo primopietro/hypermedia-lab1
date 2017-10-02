@@ -22,7 +22,7 @@ else{
 }
 function printAdmin(){
 	$content ="<div style='max-width:1000px;margin:auto;'><section class='content'>";
-	$content .="<a href='#' class='floatRight'>Ajouter un service</a>";
+	$content .="<a href='#' class='floatRight' id='addServiceButton'>Ajouter un service</a>";
 	$content .= printServiceListAdmin();
 	
 	$content .= "<section></div>";

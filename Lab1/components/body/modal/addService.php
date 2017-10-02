@@ -1,13 +1,8 @@
+<?php
 
 
-<div style="width:500px;margin:auto;">
-<h1 class="text-white"> &nbsp;
-</h1>
-<div class="box box-warning">
-           <div class="login-box-body">
- 
 
-    <form action='AJAX/addService.php' method='post'>
+$modal="<form action='AJAX/addService.php' method='post'>
        <p class='14p'>Compléter ce formulaire pour ajouter un nouveau service</p>
        <p class='text-red 10p'>Tous les champs sont obligatoires</p>
        <div class='col-xs-4' style='border:solid 1px'>
@@ -45,8 +40,6 @@
         </div>
       </div>
       
-    </form>
+    </form>";
 
-  </div>
-</div>
-
+echo $modal;

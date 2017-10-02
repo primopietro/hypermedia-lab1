@@ -388,6 +388,25 @@ $(document).on("click",".addPromotionService",function(){
 	
 });
 
+//Add promotion event click
+$(document).on("click","#addServiceButton",function(){
+	$("#getCodeModal").remove();
+	var idObject = $(this).attr("idobject");
+	$.ajax({
+		url : ajaxPath + "components/body/modal/addService.php?idobj="+idObject,
+		beforeSend : function() { enableLoader() ;
+			console.log("getting promotion modal started");
+		}
+	}).done(function(data) {
+		console.log(" getting  promotion modal success");
+		  $("body").append(data);
+		  $("#getCodeModal").modal('show');
+	}).always(function() { disableLoader();
+		console.log(" getting  promotion modalfinished");
+	});
+	
+});
+
 $(document).on("change","#aPromotion",function(e){
 var newIndex = $("#aPromotion")[0].selectedIndex +1;
 var selected = $("#aPromotion option:nth-child("+newIndex+")");
