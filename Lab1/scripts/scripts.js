@@ -134,6 +134,25 @@ $(document).on("click",".action",function(){
 			}).always(function() { disableLoader();
 				console.log(" getting  promotion modalfinished");
 			});
+		}else if(objectType == "Service"){
+			$.ajax({
+				url : ajaxPath + "components/body/modal/updateService.php",
+				data:data,
+				type:'POST',
+				beforeSend : function() { enableLoader() ;
+					console.log("getting promotion modal started");
+
+					 $("#getCodeModal").remove();
+				}
+			}).done(function(data) {
+
+				console.log(" getting  promotion modal success");
+				
+				$("body").append(data);
+				  $("#getCodeModal").modal('show');
+			}).always(function() { disableLoader();
+				console.log(" getting  promotion modalfinished");
+			});
 		}
 		
 		
@@ -154,6 +173,53 @@ $(document).on("click",".updateObj",function(){
 		var code=$("#codePromotionNew").val();
 		data+="&date_debut="+dateDebut+"&date_fin="+dateFin+"&code="+code;
 	}
+	else if(objectType == "service"){
+		var title = $("#titreNew").val();
+		var description = $("#descriptionNew").val();
+		var tarif = $("#tarifNew").val();
+		var duree = $("#dureeNew").val();
+		var isActive = $("#actifNew").val();
+		var photo  = $("#photoNew").val();
+		data+="&title="+title;
+		data+="&description="+description;
+		data+="&tarif="+tarif;
+		data+="&duree="+duree;
+		data+="&isActive="+isActive;
+		if(files != null){
+			data+="&photoName="+files[0].name;
+		}else{
+			data+="&photoName=";
+		}
+		
+		  $.ajax({
+		        url: ajaxPath + 'AJAX/uploadPhoto.php?files',
+		        type: 'POST',
+		        data: data,
+		        cache: false,
+		        dataType: 'json',
+		        processData: false, // Don't process the files
+		        contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+		        success: function(data, textStatus, jqXHR)
+		        {
+		            if(typeof data.error === 'undefined')
+		            {
+		                // Success so call function to process the form
+		                submitForm(event, data);
+		            }
+		            else
+		            {
+		                // Handle errors here
+		                console.log('ERRORS: ' + data.error);
+		            }
+		        },
+		        error: function(jqXHR, textStatus, errorThrown)
+		        {
+		            // Handle errors here
+		            console.log('ERRORS: ' + textStatus);
+		            // STOP LOADING SPINNER
+		        }
+		    });
+	}
 	$.ajax({
 		url : ajaxPath + "AJAX/update.php",
 		data:data,
@@ -173,7 +239,7 @@ $(document).on("click",".updateObj",function(){
 		console.log(" update "+objectType+" finished");
 		getHeader();
 		getBody();
-		if(objectType == "TA_Promotion_Service"){
+		if(objectType == "TA_Promotion_Service" || objectType == "service"){
 			$("#getCodeModal").remove();
 		}
 		
@@ -318,30 +384,78 @@ $(document).on("click","#addPromotion",function(){
 $(document).on("click",".addObj",function(){
 	var newObj = $(this).closest(".newobj");
 	var type = newObj.attr("type");
+	var data ="type="+type;
 	if(type=="Promotion"){
 		var name = $("#titrePromoNew").val();
 		var promotion = $("#rabaisPromoNew").val();
-		var data = "name="+name+"&value="+promotion+"&type="+type;
+		data+= "&name="+name+"&value="+promotion;
 		
-		$.ajax({
-			url : ajaxPath + "AJAX/add.php",
-			data:data,
-			type:'POST',
-			beforeSend : function() { enableLoader() ;
-				console.log("Adding Promotion started");
-			}
-		}).done(function(data) {
-			console.log("Adding Promotion success");
-			
-		}).always(function() { disableLoader();
-			console.log(" Adding Promotion finished");
-			getHeader();
-			getBody();
-			$(".modal-backdrop.fade.in").remove();
-			$("body").removeClass("modal-open");
-		});
+	}else if(type=="service"){
+		// Variable to store your files
+		
+		
+		var title = $("#titreNew").val();
+		var description = $("#descriptionNew").val();
+		var tarif = $("#tarifNew").val();
+		var duree = $("#dureeNew").val();
+		var isActive = $("#actifNew").val();
+		var photo  = $("#photoNew").val();
+		data+="&title="+title;
+		data+="&description="+description;
+		data+="&tarif="+tarif;
+		data+="&duree="+duree;
+		data+="&isActive="+isActive;
+		data+="&photoName="+files[0].name;
+		  $.ajax({
+		        url: ajaxPath + 'AJAX/uploadPhoto.php?files',
+		        type: 'POST',
+		        data: data,
+		        cache: false,
+		        dataType: 'json',
+		        processData: false, // Don't process the files
+		        contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+		        success: function(data, textStatus, jqXHR)
+		        {
+		            if(typeof data.error === 'undefined')
+		            {
+		                // Success so call function to process the form
+		                submitForm(event, data);
+		            }
+		            else
+		            {
+		                // Handle errors here
+		                console.log('ERRORS: ' + data.error);
+		            }
+		        },
+		        error: function(jqXHR, textStatus, errorThrown)
+		        {
+		            // Handle errors here
+		            console.log('ERRORS: ' + textStatus);
+		            // STOP LOADING SPINNER
+		        }
+		    });
 		
 	}
+
+	$.ajax({
+		url : ajaxPath + "AJAX/add.php",
+		data:data,
+		type:'POST',
+		beforeSend : function() { enableLoader() ;
+			console.log("Adding Promotion started");
+		}
+	}).done(function(data) {
+		console.log("Adding Promotion success");
+		
+	}).always(function() { disableLoader();
+		console.log(" Adding Promotion finished");
+		$("#getCodeModal").remove();
+		getHeader();
+		getBody();
+		$(".modal-backdrop.fade.in").remove();
+		$("body").removeClass("modal-open");
+	});
+	
 });
 
 //Add promotion event click
@@ -458,8 +572,20 @@ function getHeader(){
 		console.log(" getting new header finished");
 	});
 }
+var files;
+// Add events
+$(document).on('change','input[type=file]', prepareUpload);
 
-
+// Grab the files and set them to our variable
+function prepareUpload(event)
+{
+  files = event.target.files;
+} 
+ var data = new FormData();
+$.each(files, function(key, value)
+{
+    data.append(key, value);
+});
 
 //Get new body
 function getBody(){

@@ -97,8 +97,8 @@ function getServiceComponentAdmin($aService,$aPromotionList){
 						<div class='col-md-2'><img class='img-responsive' src='images/services/".$aService['image']."'></div>
 							<div class='col-md-10'>".$aService['service_description']."
     							<div class='row'>
-            						<div class='col-md-6'><span class='text-blue'>Tarif:200</span></div>
-            						<div class='col-md-6'><span class='text-orange'>Durée:25h</span></div>
+            						<div class='col-md-6'><span class='text-blue'>Tarif:".$aService['tarif']."</span></div>
+            						<div class='col-md-6'><span class='text-orange'>Durée:".$aService['duree']."h</span></div>
             					</div>
 							</div>
 						</div>

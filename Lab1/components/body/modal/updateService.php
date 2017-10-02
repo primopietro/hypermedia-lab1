@@ -1,13 +1,15 @@
 <?php
 
-
-
+require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/service.php');
+$id = htmlspecialchars($_POST['id']);
+$aService = new Service();
+$aService= $aService->getObjectFromDB($id);
 $modal="<div class='modal fade' id='getCodeModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
 
 
 <div style='width: 700px; margin: auto;'>
 	<h1 class='text-white'>&nbsp;</h1>
-	<div class='box box-warning newobj' type='service'>
+	<div class='box box-warning newobj' >
 		<div class='login-box-body'>
 
 
@@ -20,17 +22,17 @@ $modal="<div class='modal fade' id='getCodeModal' tabindex='-1' role='dialog' ar
        		 <input type='file' name='fileToUpload' id='photoNew'>
        </div>
      <div class='form-group has-feedback col-xs-8'>
-        <input id='titreNew' class='form-control' placeholder='Titre' name='titre'>
+        <input id='titreNew' class='form-control' value='".$aService['service_titre']."' placeholder='Titre' name='titre'>
       </div>
        <div class='form-group has-feedback col-xs-8'>
-        <input id='descriptionNew' class='form-control' placeholder='Description' name='description'>
+        <input id='descriptionNew' class='form-control' value='".$aService['service_description']."' placeholder='Description' name='description'>
       </div>
       <div class='form-group has-feedback col-xs-4'>
-        <input id='dureeNew' class='form-control' placeholder='Durée' name='duree'>
+        <input id='dureeNew' class='form-control' value='".$aService['duree']."' placeholder='Durée' name='duree'>
       </div>
       
       <div class='form-group has-feedback col-xs-4'>
-        <input id='tarifNew' class='form-control' placeholder='Tarif' name='Tarif'>
+        <input id='tarifNew' value='".$aService['tarif']."' class='form-control' placeholder='Tarif' name='Tarif'>
       </div>
      
       <div class='row'>
@@ -44,7 +46,7 @@ $modal="<div class='modal fade' id='getCodeModal' tabindex='-1' role='dialog' ar
         </div>
         <!-- /.col -->
         <div class='col-xs-6'>
-          <a  class='btn btn-primary btn-block btn-flat addObj' style='float:right;'>Confirmer</a>
+          <a  class='btn btn-primary btn-block btn-flat updateObj'  type='service' idobj='".$id."'  style='float:right;'>Confirmer</a>
         </div>
       </div>
       

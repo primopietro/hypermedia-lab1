@@ -63,10 +63,12 @@ function getAllPayedFactures(){
 				if(sizeof($aTempPromotionService)>0 ){
 					foreach($aTempPromotionService as $localPS){
 						$aLocalPromotion =$aPromotion->getObjectFromDB($localPS['fk_promotion']);
-						$tempService['promotion'] = $aLocalPromotion;
+					
 						$tempService['priceBefore'] =  $tempService['tarif'];
 						$tempService['priceAfter'] =  $tempService['priceBefore'] *(1-$aLocalPromotion['rabais']);
-						$tempFacture['price']+=$tempService['priceAfter'];
+						$tempFacture['price']=$tempService['priceBefore']+ ($tempFacture['price']- $tempService['priceAfter']);
+						$aLocalPromotion['discount'] =  $tempService['priceBefore'] *(1-$aLocalPromotion['rabais']);
+						$tempService['promotion'][] = $aLocalPromotion;
 					}
 					
 				}else{
@@ -109,6 +111,11 @@ function printFactureListAdmin(){
 
 //Get html component for one facture
 function getFactureComponentAdmin($aFacture){
+	$totalPrice = 0;
+	foreach($aFacture['services'] as $aService){
+		$totalPrice +=$aService['tarif'];
+	}
+	
 	$defaultComponent = "
 <div style='width: 100%;max-width:850px; margin: auto;'>
 	<h1 class='text-white'>&nbsp;</h1>
@@ -125,11 +132,12 @@ function getFactureComponentAdmin($aFacture){
 			<div  class='row'>
 				<div class='text-blue  col-xs-2'></div>
 				<div class='text-blue  col-xs-4'>".$aFacture['no_confirmation']."</div>
-				<div class='text-blue col-xs-4 float-right'>".$aFacture['price']."$</div>
+				<div class='text-blue col-xs-4 float-right'>".($totalPrice - $aFacture['price'])."$</div>
 				<div class='text-blue col-xs-2 float-right'><a class='text-black ' href='javascript:void(0)'><span  data-toggle='collapse' data-target='#details".$aFacture['pk_facture']."'>Détail</span></a></div>
 			</div>
 		</div>
 		<div id='details".$aFacture['pk_facture']."' class='collapse'>";
+
 	foreach($aFacture['services'] as $aService){
 		$defaultComponent .= "<div  class='row'>
 					<div class='text-blue  col-xs-2'></div>
@@ -139,9 +147,30 @@ function getFactureComponentAdmin($aFacture){
 		if(isset($aService['promotion'])){
 			$defaultComponent .= "<div  class='row'>
 					<div class='text-red col-xs-2'></div>
-					<div class='text-red col-xs-4'><small style='padding-left:25px;'>".$aService['promotion']['promotion_titre']."(".($aService['promotion']['rabais']*100)."%)</small></div>
-					<div class='text-red col-xs-3'><small>-".($aService['priceBefore'] - $aService['priceAfter'])."$</small></div>
-				</div>";
+					";
+			if($aService['promotion'] != null){
+				if(sizeof($aService['promotion']>0)){
+					$i=0;
+					foreach($aService['promotion'] as $tempPromo){
+						if($i>0){
+							$defaultComponent .="<div class='text-red col-xs-3'> </div>";
+							$defaultComponent.="	<div class='text-red col-xs-4' style='padding-left:156px;'><small style='padding-left:25px;'>".$tempPromo['promotion_titre']."(".($tempPromo['rabais']*100)."%)</small></div>";
+							$defaultComponent .= "<div class='text-red col-xs-3' style='padding-left:156px;'><small>-".($aService['priceBefore'] - $tempPromo['discount'])."$</small></div>";
+							
+						}else{
+							$defaultComponent.="	<div class='text-red col-xs-4'><small style='padding-left:25px;'>".$tempPromo['promotion_titre']."(".($tempPromo['rabais']*100)."%)</small></div>";
+							
+							$defaultComponent .= "<div class='text-red col-xs-3'><small>-".($aService['priceBefore'] - $tempPromo['discount'])."$</small></div>";
+							
+						}
+						$defaultComponent .="<div class='text-red col-xs-2'></div>";
+						++$i;
+					}
+				}
+			}
+		
+						//	$defaultComponent .= "<div class='text-red col-xs-3'><small>-".($aService['priceBefore'] - $aService['priceAfter'])."$</small></div>
+			$defaultComponent .= "</div>";
 		}
 	}
 	
