@@ -55,17 +55,25 @@ function getPromotionsForService($aService){
 function printServiceListAdmin(){
 	$serviceList = getServiceList();
 	$serviceListString = "";
-	foreach ($serviceList as &$service) {
-		$promotionsForService = getPromotionsForService($service);
-		$serviceListString .= getServiceComponentAdmin($service,$promotionsForService);
+	if($serviceList!=null){
+		if(sizeof($serviceList)>0){
+			foreach ($serviceList as &$service) {
+				$promotionsForService = getPromotionsForService($service);
+				$serviceListString .= getServiceComponentAdmin($service,$promotionsForService);
+			}
+		}
 	}
+	
 	return $serviceListString;
 }
 function getServiceComponentAdmin($aService,$aPromotionList){
 	if($aService['image'] == null){
 		$aService['image'] = "image-not-found.gif";
 	}
-	$markup = "<div class='row'>
+	
+	$markup = "";
+	if($aService['actif'] == "1" || $aService == 1 ){
+		$markup = "<div class='row'>
 			<div class='col-md-12'>
 				<div class='box'>
 					<div class='box-header with-border'>
@@ -80,10 +88,10 @@ function getServiceComponentAdmin($aService,$aPromotionList){
 								data-widget='remove'>
 								<i class='fa fa-times'></i>
 							</button>";
-	$markup.= getModifyServiceButton($aService);
-	$markup.="			</div>
+		$markup.= getModifyServiceButton($aService);
+		$markup.="			</div>
 					</div>
-			
+				
 					<div class='box-body'>
 						<div class='row'>
 						<div class='col-md-2'><img class='img-responsive' src='images/services/".$aService['image']."'></div>
@@ -100,13 +108,13 @@ function getServiceComponentAdmin($aService,$aPromotionList){
 									</div>
 									<div class='col-md-9'>
 										<div class='row'>";
-	
-	foreach($aPromotionList as $aPromotion){
 		
-		$markup .=getModifyPromotionComponent($aPromotion);
-		
-	}
-	$markup.="<div class='col-md-2'>
+		foreach($aPromotionList as $aPromotion){
+			
+			$markup .=getModifyPromotionComponent($aPromotion);
+			
+		}
+		$markup.="<div class='col-md-2'>
 												<a style='color:blue;font-size:60px;' class='addPromotionService' idobject='".$aService['pk_service']."'>+</a>
 											</div>
 											<div class='col-md-2 floatRight'>
@@ -116,16 +124,18 @@ function getServiceComponentAdmin($aService,$aPromotionList){
 									</div>
 								</div>
 					</div>
-			
-			
+														
+														
 					<!-- ./box-body -->
-			
+														
 					<!-- /.box-footer -->
 				</div>
 				<!-- /.box -->
 			</div>
 			<!-- /.col -->
 		</div>";
+	}
+	
 	
 	return $markup;
 }

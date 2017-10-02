@@ -28,7 +28,10 @@ function getCatalogComponent($aService){
 	if($aService['image'] == null){
 		$aService['image'] = "image-not-found.gif";
 	}
-	$markup = "<div class='row'>
+	
+	$markup = "";
+	if($aService['actif'] == "1" || $aService['actif'] == 1){
+		$markup = "<div class='row'>
 			<div class='col-md-7 divCenter'>
 				<div class='box'>
 					<div class='box-header with-border'>
@@ -69,6 +72,8 @@ function getCatalogComponent($aService){
 			</div>
 			<!-- /.col -->
 		</div>";
+	}
+	
 	
 	return $markup;
 }

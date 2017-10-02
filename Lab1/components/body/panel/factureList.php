@@ -42,13 +42,19 @@ function getAllPayedFactures(){
 		$aFacturePayementList = $aFacturePayement->getListOfAllDBObjectsWhere(" fk_facture ", " = ", $tempFacture['pk_facture']);
 		
 		//Get service for each facture
-		foreach($aFacturePayementList as $tempFacturePayement){
-			$aServiceList[$tempFacturePayement['fk_service']] = $aService->getObjectFromDB($tempFacturePayement['fk_service']);
+		if($aFacturePayementList!= null){
+			if(sizeof($aFacturePayementList)>0){
+				foreach($aFacturePayementList as $tempFacturePayement){
+					$aServiceList[$tempFacturePayement['fk_service']] = $aService->getObjectFromDB($tempFacturePayement['fk_service']);
+				}
+				
+			}
 		}
 		
 		
 		//Get promotion for each service
 		foreach($aServiceList as $tempService){
+			
 			$aTempPromotionService = $aPromotionService->getListOfAllDBObjectsWhere(" fk_service ", " = ", $tempFacture['pk_facture']);
 			
 			
