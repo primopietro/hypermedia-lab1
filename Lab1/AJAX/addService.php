@@ -5,26 +5,23 @@ if (session_status() == PHP_SESSION_NONE) {
 
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/service.php');
 
-$anObject = new Service();
-$title= htmlspecialchars ( $_POST ['titre'] );
-$description= htmlspecialchars ( $_POST ['description'] );
-$tarif= htmlspecialchars ( $_POST ['tarif'] );
-$duree= htmlspecialchars ( $_POST ['duree'] );
-$isActive= htmlspecialchars ( $_POST ['actif'] );
-if($isActive == "on"){
-    $isActive = 1;
-}else{
-    $isActive =0;
-}
-$photoName= htmlspecialchars ( $_POST ['fileToUpload'] );
+$aService = new Service();
+$service_titre = htmlspecialchars($_POST["titre"]);
+$description = htmlspecialchars($_POST["description"]);
+$dure = htmlspecialchars($_POST["duree"]);
+$tarif = htmlspecialchars($_POST["Tarif"]);
+$actif = htmlspecialchars($_POST["actif"]);
 
-$anObject->setActif($isActive);
-$anObject->setService_titre($title);
-$anObject->setService_description($description);
-$anObject->setTarif($tarif);
-$anObject->setDuree($duree);
-$anObject->setImage($photoName);
 
-$anObject->addDBObject ();
+
+$aService->setService_titre($service_titre);
+$aService->setService_description($description);
+$aService->setDuree($dure);
+$aService->setTarif($tarif);
+$aService->setActif($actif);
+
+
+$aService>addDBObject();
+
 
 ?>

@@ -28,7 +28,7 @@ $anAdress->setCode_postal($CP);
 $_SESSION["currentClient"]->setPrenom($name);
 $_SESSION["currentClient"]->setNom($familyName);
 $_SESSION["currentClient"]->setTelephone($telephone);
-$_SESSION["currentUser"]->setCourriel($email);
+$_SESSION["currentClient"]->setTelephone($telephone);
 $_SESSION["currentUser"]->setMot_de_passe($password);
  
 $_SESSION["currentClient"]->updateDBObject();
