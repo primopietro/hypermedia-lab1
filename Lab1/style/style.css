@@ -345,5 +345,17 @@
 	.promoLabel{}
 }
 
-
+.factureDetail {
+    position: absolute;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#87e0fd+0,53cbf1+40,05abe0+100;Blue+3D+%23+16 */
+background: rgb(135,224,253); /* Old browsers */
+background: -moz-linear-gradient(top, rgb(135,224,253) 0%, rgb(83,203,241) 40%, rgb(5,171,224) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgb(135,224,253) 0%,rgb(83,203,241) 40%,rgb(5,171,224) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgb(135,224,253) 0%,rgb(83,203,241) 40%,rgb(5,171,224) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#87e0fd', endColorstr='#05abe0',GradientType=0 ); /* IE6-9 */
+    border: 2px solid orange;
+    font-size: 24px;
+    padding: 10px;
+    z-index: 200;
+}
 

@@ -6,7 +6,8 @@ require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/fact
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/promotion.php');
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/TA_Promotion_Service.php');
 require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/TA_Facture_Service.php');
-
+require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/adresse.php');
+require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/ville.php');
 
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
@@ -27,17 +28,25 @@ function getAllPayedFactures(){
 	foreach($aFactureList as $tempFacture){
 		//Default objects
 		$aClient = new Client();
+		$anAddress = new Adresse();
 		$aFacturePayement = new TA_Facture_Service();
 		$aPromotionService = new TA_Promotion_Service();
 		$aService = new Service();
 		$aPromotion = new Promotion();
 		$aServiceList = array();
+		$aVille = new Ville();
 		$tempFacture['price']=0;
 		
 		//DB getters
 		$aClient = $aClient->getObjectFromDB($tempFacture['fk_client']);		
-		$tempFacture['client'] = $aClient;
 		
+		
+		$anAddress= $anAddress->getObjectFromDB($aClient['fk_adresse']);		
+		
+		$aVille =  $aVille->getObjectFromDB($anAddress['fk_ville']);		
+		$anAddress['ville'] = $aVille;
+		$aClient['address'] = $anAddress;
+		$tempFacture['client'] = $aClient;
 		
 		$aFacturePayementList = $aFacturePayement->getListOfAllDBObjectsWhere(" fk_facture ", " = ", $tempFacture['pk_facture']);
 		
@@ -125,7 +134,8 @@ function getFactureComponentAdmin($aFacture){
 
 			<div class='row'>
 				<div class='text-red col-xs-2'>".$aFacture['pk_facture']."</div>
-				<div class='float-right col-xs-4 float-right'><a class='text-black ' href='url'><u>".$aFacture['client']['prenom']." " .$aFacture['client']['nom'].  "</u></a></div>
+				<div class='float-right col-xs-4 float-right'><a  data-toggle='collapse' data-target='#facture".$aFacture['pk_facture']."' aria-expanded='false' class='collapsed text-black toggleFacture' ><u>".$aFacture['client']['prenom']." " .$aFacture['client']['nom'].  "</u></a></div>
+				
 				<div class='text-yellow col-xs-4'>".substr($aFacture['date_service'], 0, -8)."</div>
 			<div class=' col-xs-2'></div>
 			</div>
@@ -135,6 +145,8 @@ function getFactureComponentAdmin($aFacture){
 				<div class='text-blue col-xs-4 float-right'>".($totalPrice - $aFacture['price'])."$</div>
 				<div class='text-blue col-xs-2 float-right'><a class='text-black ' href='javascript:void(0)'><span  data-toggle='collapse' data-target='#details".$aFacture['pk_facture']."'>Détail</span></a></div>
 			</div>
+<div id='facture".$aFacture['pk_facture']."'  class='collapse factureDetail' aria-expanded='false' style='height: 0px;'><span style='color:black;'>".$aFacture['client']['prenom']." " .$aFacture['client']['nom'].  "</span>
+				<span style='color:blue;'>".$aFacture['client']['telephone']."</span><br><span style='color:orange;'>".$aFacture['client']['address']['no_civique']. " ".$aFacture['client']['address']['rue']." ,".$aFacture['client']['address']['ville']['ville'].", ".$aFacture['client']['address']['code_postal']."</span></div>
 		</div>
 		<div id='details".$aFacture['pk_facture']."' class='collapse'>";
 
