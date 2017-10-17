@@ -46,6 +46,15 @@ echo "
 <script src=' dist/js/pages/dashboard.js'></script>
 <!-- AdminLTE for demo purposes -->
 <script src='scripts/scripts.js'></script>
+
+<div id='fb-root'></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = '//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.10&appId=243247112870024';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>
 ";

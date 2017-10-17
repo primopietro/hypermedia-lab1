@@ -1,6 +1,10 @@
 //Variables
 var ajaxPath = "http://localhost/hypermedia-lab1/Lab1/";
-
+function checkLoginState() {
+	  FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	  });
+	}
 //Prevent defaults
 $("form").submit(function(e){
     e.preventDefault();

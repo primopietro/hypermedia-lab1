@@ -36,6 +36,8 @@
     <div class="social-auth-links text-center">
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> 
       Sign in using Facebook</a>
+      <div class='fb-login-button' data-max-rows='1' data-size='large' data-button-type='continue_with' data-show-faces='true' data-auto-logout-link='false' data-use-continue-as='false'></div>
+
     </div>
 
   </div>
