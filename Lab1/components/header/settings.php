@@ -5,8 +5,8 @@ require_once ($_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/MVC/model/util
 function getHeaderSettings($aUser){
 	$settings ="";
 	if (!$aUser->getAdministrateur()) {
-		$settings= "<li class='dropdown user user-menu'>
-		            <a href='components/body/error/error404.php' >
+		$settings= "<li class='dropdown user user-menu' shopLink='panel/cartList'>
+		            <a id='panier'>
 		              <span class='hidden-xs'>Mon panier(1)</span>
 		            </a>
 		          </li>";
