@@ -9,6 +9,118 @@ function checkLoginState() {
 $("form").submit(function(e){
     e.preventDefault();
 });
+
+
+
+$(document).on("click","#validerPromos",function(){
+	var promoName = $("#rabaisPromo").val();
+	var data = "promoName="+promoName
+	
+	$.ajax({
+		url : ajaxPath + "AJAX/validerPromo.php",
+		data:data,
+		type:'POST',
+		beforeSend : function() { enableLoader() ;
+			console.log("removeFromPanier started");
+		}
+	}).done(function(data) {
+		if(data == "success"){
+		 swal('Success',
+				    "",
+				    'success')
+		}else{
+			swal('Erreur',
+				   "",
+				    'error')
+		}
+		
+	}).always(function() { disableLoader();
+		console.log("removeFromPanier  finished");
+		getHeaderPanier();
+		getPanier();
+	});
+	
+});
+
+$(document).on("click",".retirerPanier",function(){
+	var idobj = $(this).attr("idobj");
+	var data = "idobj="+idobj;
+	
+	$.ajax({
+		url : ajaxPath + "AJAX/removeFromPanier.php",
+		data:data,
+		type:'POST',
+		beforeSend : function() { enableLoader() ;
+			console.log("removeFromPanier started");
+		}
+	}).done(function(data) {
+		if(data == "success"){
+		 swal('Success',
+				    "",
+				    'success')
+		}else{
+			swal('Erreur',
+				   "",
+				    'error')
+		}
+		
+	}).always(function() { disableLoader();
+		console.log("removeFromPanier  finished");
+		getHeaderPanier();
+		getPanier();
+	});
+});
+
+$(document).on("click",".buyItem",function(){
+	var idobj = $(this).attr("idobj");
+	var prix =  $(this).attr("prix");
+	var nom= $(this).attr("nom");
+	var data = 'idobj='+idobj;
+
+	swal({
+		  title: 'Ajouter au panier',
+		  text: nom +" "+ prix+"$",
+		  type: 'question',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'Ajouter',
+		  cancelButtonText: 'Annuller',
+		  confirmButtonClass: 'btn btn-success',
+		  cancelButtonClass: 'btn btn-danger',
+		  showLoaderOnConfirm: true,
+		  buttonsStyling: true
+		}).then(function () {
+			$.ajax({
+				url : ajaxPath + "AJAX/addToPanier.php",
+				data:data,
+				type:'POST',
+				beforeSend : function() { enableLoader() ;
+					console.log("Add to panier started");
+				}
+			}).done(function(data) {
+				if(data == "success"){
+				 swal('Success',
+						    nom +" a ete ajoute au panier",
+						    'success')
+				}else{
+					swal('Erreur',
+						    nom +" n'a pas ete ajoute au panier",
+						    'error')
+				}
+				
+			}).always(function() { disableLoader();
+				console.log(" Add to panier  finished");
+				getHeader();
+				getBody();
+			});
+		 
+		  
+		}, function (dismiss) {
+		 
+		})
+});
+
 //Add promotion to all
 $(document).on("click","#addPromotionAll",function(){
 	var idobj = $(this).attr("idobj");
@@ -594,6 +706,43 @@ $.each(files, function(key, value)
 {
     data.append(key, value);
 });
+
+
+//Get header panier
+function getHeaderPanier(){
+	$.ajax({
+		url : ajaxPath + "components/header/settingsStatic.php",
+		beforeSend : function() { enableLoader() ;
+			console.log("getting new cartList started");
+		}
+	}).done(function(data) {
+		console.log(" getting new cartList success");
+		$("#panier").html(data);
+		
+	}).always(function() { disableLoader();
+		console.log(" getting new cartList finished");
+	});
+}
+
+
+//Get panier
+function getPanier(){
+	$.ajax({
+		url : ajaxPath + "components/body/panel/cartList.php",
+		beforeSend : function() { enableLoader() ;
+			console.log("getting new cartList started");
+		}
+	}).done(function(data) {
+		console.log(" getting new cartList success");
+		$("#mainContent").html(data);
+		
+	}).always(function() { disableLoader();
+		console.log(" getting new cartList finished");
+	});
+}
+
+
+
 
 //Get new body
 function getBody(){

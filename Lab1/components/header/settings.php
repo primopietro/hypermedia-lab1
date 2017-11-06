@@ -7,7 +7,7 @@ function getHeaderSettings($aUser){
 	if (!$aUser->getAdministrateur()) {
 		$settings= "<li class='dropdown user user-menu' shopLink='panel/cartList'>
 		            <a id='panier'>
-		              <span class='hidden-xs'>Mon panier(1)</span>
+		              <span class='hidden-xs'>Mon panier(".sizeof($_SESSION["panier"]).")</span>
 		            </a>
 		          </li>";
 	}

@@ -65,5 +65,33 @@ class Promotion extends BaseModel {
         $this->rabais = $rabais;
         return $this;
     }
+    
+    public function getPromotionByTitle($aTitle){
+        include $_SERVER ["DOCUMENT_ROOT"] . '/hypermedia-lab1/Lab1/DB/dbConnect.php';
+        
+        
+        $sql = "SELECT * FROM `promotion` WHERE `promotion_titre` LIKE '".$aTitle."' ";
+        $result = $conn->query ( $sql );
+      
+        $numRows = $result->num_rows;
+        if ($numRows> 0) {
+            $localObjects = array ();
+            while ( $row = $result->fetch_assoc () ) {
+                $anObject = Array ();
+                $anObject ["primary_key"] = $this->primary_key;
+                $anObject ["table_name"] = $this->table_name;
+                foreach ( $row as $aRowName => $aValue ) {
+                    $anObject [$aRowName] = $aValue;
+                }
+                
+                $localObjects [$row [$this->primary_key]] = $anObject;
+            }
+            
+            $conn->close ();
+            return $localObjects;
+        }
+        $conn->close ();
+        return null;
+    }
 
 }

@@ -22,10 +22,9 @@ echo "
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
   <link rel='stylesheet' href=' dist/css/skins/_all-skins.min.css'>
-  <!-- Morris chart -->
-  <link rel='stylesheet' href=' bower_components/morris.js/morris.css'>
-  <!-- jvectormap -->
-  <link rel='stylesheet' href=' bower_components/jvectormap/jquery-jvectormap.css'>
+ 
+   <!-- Sweet Alert -->
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.css'>
   <!-- Date Picker -->
   <link rel='stylesheet' href=' bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css'>
   <!-- Daterange picker -->

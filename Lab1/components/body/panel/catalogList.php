@@ -57,7 +57,7 @@ function getCatalogComponent($aService){
     							<div class='row'>
             						<div class='col-md-6  textBot'><span class='text-blue'>Tarif:".$aService['tarif']."</span></div>
             						<div class='col-md-5 textBot' ><span class='text-orange'>Durée:".$aService['duree']."h</span></div>
-                                    <div class='col-md-1 textBot' ><a  href='javascript:void(0)'><img class='img-responsive'  style='max-width:25px;' src='images/icones/panier'></a></div>
+                                    <div class='col-md-1 textBot' ><a  href='javascript:void(0)' nom='".$aService['service_titre']."' prix='".$aService['tarif']."' idobj='".$aService['pk_service']."' class='buyItem'><img class='img-responsive '  style='max-width:25px;' src='images/icones/panier'></a></div>
             					</div>
 							</div>
 						</div>

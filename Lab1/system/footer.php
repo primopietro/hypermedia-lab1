@@ -40,13 +40,16 @@ echo "
 <script src=' bower_components/jquery-slimscroll/jquery.slimscroll.min.js'></script>
 <!-- FastClick -->
 <script src=' bower_components/fastclick/lib/fastclick.js'></script>
+
+ <!-- Sweet Alert -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js'></script>
 <!-- AdminLTE App -->
 <script src=' dist/js/adminlte.min.js'></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src=' dist/js/pages/dashboard.js'></script>
 <!-- AdminLTE for demo purposes -->
 <script src='scripts/scripts.js'></script>
-
+<script src='https://www.paypalobjects.com/api/checkout.js'></script>
 <div id='fb-root'></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

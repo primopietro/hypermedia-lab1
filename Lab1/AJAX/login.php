@@ -32,6 +32,9 @@ if(isset($_POST)){
 			if(	$client->getInfoFromPk_utilisateur($user->getPk_utilisateur())){
 				//Set client in the current session
 				$_SESSION["currentClient"] = $client;
+				$_SESSION["panier"] = array();
+				$_SESSION["rabaisGlobal"] =0;
+				$_SESSION['tobePayed'] =0;
 			}
 		}
 		else{
